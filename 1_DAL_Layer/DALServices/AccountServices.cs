@@ -15,8 +15,15 @@ namespace _1_DAL_Layer.DALService
 
         public NhanVien getNhanVien(string Mail, string password)
         {
-            var NhanVien = DbContext.NhanViens.ToList().Where(x => x.Email == Mail && x.MatKhau == password).ToList()[0];
-            return NhanVien;
+            try
+            {
+                var NhanVien = DbContext.NhanViens.ToList().Where(x => x.Email == Mail && x.MatKhau == password).ToList()[0];
+                return NhanVien;
+            }
+            catch (Exception e)
+            { 
+                return null;
+            }
         }
 
         public string updatePassword(NhanVien nhanVien)
@@ -24,6 +31,7 @@ namespace _1_DAL_Layer.DALService
             try
             {
                 DbContext.NhanViens.Update(nhanVien);
+                DbContext.SaveChanges();
                 return "update successful";
             }
             catch

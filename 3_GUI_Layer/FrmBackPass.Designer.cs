@@ -32,7 +32,7 @@ namespace _3_GUI_Layer
             this.lblBackPass = new System.Windows.Forms.Label();
             this.btnsenMail = new System.Windows.Forms.Button();
             this.lblMail = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMaXacNhan = new System.Windows.Forms.TextBox();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.pbBackPass = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackPass)).BeginInit();
@@ -54,8 +54,9 @@ namespace _3_GUI_Layer
             this.btnsenMail.Name = "btnsenMail";
             this.btnsenMail.Size = new System.Drawing.Size(175, 29);
             this.btnsenMail.TabIndex = 1;
-            this.btnsenMail.Text = "Nhận Mật Khẩu Mới";
+            this.btnsenMail.Text = "Xác nhận";
             this.btnsenMail.UseVisualStyleBackColor = true;
+            this.btnsenMail.Click += new System.EventHandler(this.btnsenMail_Click);
             // 
             // lblMail
             // 
@@ -63,16 +64,16 @@ namespace _3_GUI_Layer
             this.lblMail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMail.Location = new System.Drawing.Point(31, 141);
             this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(51, 20);
+            this.lblMail.Size = new System.Drawing.Size(105, 20);
             this.lblMail.TabIndex = 2;
-            this.lblMail.Text = "Email ";
+            this.lblMail.Text = "Mã xác nhận :";
             // 
-            // textBox1
+            // txtMaXacNhan
             // 
-            this.textBox1.Location = new System.Drawing.Point(109, 138);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(320, 27);
-            this.textBox1.TabIndex = 3;
+            this.txtMaXacNhan.Location = new System.Drawing.Point(142, 138);
+            this.txtMaXacNhan.Name = "txtMaXacNhan";
+            this.txtMaXacNhan.Size = new System.Drawing.Size(287, 27);
+            this.txtMaXacNhan.TabIndex = 3;
             // 
             // btnDangNhap
             // 
@@ -99,11 +100,12 @@ namespace _3_GUI_Layer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(471, 272);
             this.Controls.Add(this.pbBackPass);
             this.Controls.Add(this.btnDangNhap);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtMaXacNhan);
             this.Controls.Add(this.lblMail);
             this.Controls.Add(this.btnsenMail);
             this.Controls.Add(this.lblBackPass);
@@ -121,7 +123,7 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.Label lblBackPass;
         private System.Windows.Forms.Button btnsenMail;
         private System.Windows.Forms.Label lblMail;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMaXacNhan;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.PictureBox pbBackPass;
     }

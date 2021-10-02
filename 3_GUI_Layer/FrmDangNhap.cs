@@ -21,7 +21,16 @@ namespace _3_GUI_Layer
 
         private void llbQMK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            try
+            {
+                FrmBackPass frmBackPass = new FrmBackPass();
+                frmBackPass.Show();
+                this.Close();
+            }
+            catch
+            {
+                Console.WriteLine("Error");
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -29,15 +38,26 @@ namespace _3_GUI_Layer
             var mail = txtTK.Text;
             var password = txtMk.Text;
             var result = _iLogingservice.CheckLogin(mail, password);
+            if (_iLogingservice.SenderTrangThaiMatKhau() == false)
+            {
+                MessageBox.Show("Hãy đổi mật khẩu để sử dụng");
+                FrmDoiMatKhau frmDoiMatKhau = new FrmDoiMatKhau();
+                frmDoiMatKhau.Show();
+                this.Close();
+                return;
+            }
             if (result == true)
             {
-                 
-                this.Close();
+                FrmMain frmMain = new FrmMain();
+                frmMain.changeStatus(result, _iLogingservice.SenderMaNV());
+                frmMain.Show();
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("Đăng nhập lại .");
             }
+
         }
     }
 }

@@ -86,6 +86,7 @@ namespace _3_GUI_Layer
             // 
             this.txtMk.Location = new System.Drawing.Point(154, 186);
             this.txtMk.Name = "txtMk";
+            this.txtMk.PasswordChar = 'x';
             this.txtMk.Size = new System.Drawing.Size(264, 27);
             this.txtMk.TabIndex = 2;
             // 
@@ -134,6 +135,7 @@ namespace _3_GUI_Layer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(446, 320);
             this.Controls.Add(this.pcbLogin);

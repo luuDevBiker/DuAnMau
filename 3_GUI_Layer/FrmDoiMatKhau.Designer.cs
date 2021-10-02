@@ -35,10 +35,10 @@ namespace _3_GUI_Layer
             this.lblMatKhau = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtMail = new System.Windows.Forms.TextBox();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.txtPassNew = new System.Windows.Forms.TextBox();
+            this.txtPassNew2 = new System.Windows.Forms.TextBox();
             this.btnDoiMatKhau = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -112,37 +112,40 @@ namespace _3_GUI_Layer
             this.label3.Text = "Mật khẩu mới :";
             this.label3.UseWaitCursor = true;
             // 
-            // textBox1
+            // txtMail
             // 
-            this.textBox1.Location = new System.Drawing.Point(33, 175);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(344, 27);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.UseWaitCursor = true;
+            this.txtMail.Location = new System.Drawing.Point(33, 175);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(344, 27);
+            this.txtMail.TabIndex = 1;
+            this.txtMail.UseWaitCursor = true;
             // 
-            // textBox2
+            // txtPass
             // 
-            this.textBox2.Location = new System.Drawing.Point(33, 236);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(344, 27);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.UseWaitCursor = true;
+            this.txtPass.Location = new System.Drawing.Point(33, 236);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = 'x';
+            this.txtPass.Size = new System.Drawing.Size(344, 27);
+            this.txtPass.TabIndex = 2;
+            this.txtPass.UseWaitCursor = true;
             // 
-            // textBox3
+            // txtPassNew
             // 
-            this.textBox3.Location = new System.Drawing.Point(33, 297);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(344, 27);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.UseWaitCursor = true;
+            this.txtPassNew.Location = new System.Drawing.Point(33, 297);
+            this.txtPassNew.Name = "txtPassNew";
+            this.txtPassNew.PasswordChar = 'x';
+            this.txtPassNew.Size = new System.Drawing.Size(344, 27);
+            this.txtPassNew.TabIndex = 3;
+            this.txtPassNew.UseWaitCursor = true;
             // 
-            // textBox4
+            // txtPassNew2
             // 
-            this.textBox4.Location = new System.Drawing.Point(33, 358);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(344, 27);
-            this.textBox4.TabIndex = 4;
-            this.textBox4.UseWaitCursor = true;
+            this.txtPassNew2.Location = new System.Drawing.Point(33, 358);
+            this.txtPassNew2.Name = "txtPassNew2";
+            this.txtPassNew2.PasswordChar = 'x';
+            this.txtPassNew2.Size = new System.Drawing.Size(344, 27);
+            this.txtPassNew2.TabIndex = 4;
+            this.txtPassNew2.UseWaitCursor = true;
             // 
             // btnDoiMatKhau
             // 
@@ -153,6 +156,7 @@ namespace _3_GUI_Layer
             this.btnDoiMatKhau.Text = "Đổi mật khẩu";
             this.btnDoiMatKhau.UseVisualStyleBackColor = true;
             this.btnDoiMatKhau.UseWaitCursor = true;
+            this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
             // 
             // btnThoat
             // 
@@ -168,14 +172,15 @@ namespace _3_GUI_Layer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(399, 481);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDoiMatKhau);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPassNew2);
+            this.Controls.Add(this.txtPassNew);
+            this.Controls.Add(this.txtPass);
+            this.Controls.Add(this.txtMail);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblMatKhau);
@@ -202,10 +207,10 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.Label lblMatKhau;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtMail;
+        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.TextBox txtPassNew;
+        private System.Windows.Forms.TextBox txtPassNew2;
         private System.Windows.Forms.Button btnDoiMatKhau;
         private System.Windows.Forms.Button btnThoat;
     }

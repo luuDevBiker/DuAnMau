@@ -28,5 +28,7 @@ namespace _1_DAL_Layer.Entitys
         public string MatKhau { get; set; }
         [Required]
         public bool TrangThai { get; set; }
+        [Required]
+        public bool TrangThaiMatKhau { get; set; }
     }
 }
