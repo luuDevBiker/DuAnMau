@@ -63,6 +63,16 @@ namespace _3_GUI_Layer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap b013aa85b10574e9e630ab19e9c99fd0 {
+            get {
+                object obj = ResourceManager.GetObject("b013aa85b10574e9e630ab19e9c99fd0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap images {
             get {
                 object obj = ResourceManager.GetObject("images", resourceCulture);

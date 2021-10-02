@@ -12,21 +12,26 @@ namespace _3_GUI_Layer
     public partial class FrmBackPass : Form
     {
         private utility utility = new utility();
-        private string _mail;
         public FrmBackPass()
         {
             InitializeComponent();
         }
 
-        private void getMail(string mail)
-        {
-            _mail = mail;
-        }
-
         private void btnsenMail_Click(object sender, EventArgs e)
         {
- 
-            MessageBox.Show("done");
+            try
+            {
+                var passRandom = utility.PassRandom();
+                utility.SenderMail(txtMail.Text, passRandom);
+
+                MessageBox.Show("done");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }

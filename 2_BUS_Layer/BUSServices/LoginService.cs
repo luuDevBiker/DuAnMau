@@ -14,23 +14,12 @@ namespace _2_BUS_Layer.BUSServices
     {
         private IAccountServices _iAccountServices = new _1_DAL_Layer.DALService.AccountServices();
         private Utility.utility utility = new Utility.utility();
-        string _Ma_NhanVien;
-        bool _TrangThaiMatKhau;
-        public string SenderMaNV()
-        {
-              return _Ma_NhanVien;
-        }
-        public bool SenderTrangThaiMatKhau()
-        {
-            return _TrangThaiMatKhau;
-        }
+
         public bool CheckLogin(string mail, string password)
         {
             try
             {
-                var nhanVien = _iAccountServices.getNhanVien(mail,utility.MaHoaPass(password));
-                _Ma_NhanVien = nhanVien.Ma_NhanVien;
-                _TrangThaiMatKhau = nhanVien.TrangThaiMatKhau;
+                var nhanVien = _iAccountServices.getNhanVien(mail);
                 bool result = nhanVien.MatKhau == utility.MaHoaPass(password) ? true : false;
                 return result;
             }
@@ -40,9 +29,9 @@ namespace _2_BUS_Layer.BUSServices
             }
         }
 
-        public _1_DAL_Layer.Entitys.NhanVien SenderNhanVien(string Mail , string password)
+        public _1_DAL_Layer.Entitys.NhanVien SenderNhanVien(string Mail)
         {
-            return _iAccountServices.getNhanVien(Mail, utility.MaHoaPass(password));
+            return _iAccountServices.getNhanVien(Mail);
         }
 
         public string DoiMatKhau(_1_DAL_Layer.Entitys.NhanVien nhanvien)

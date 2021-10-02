@@ -8,12 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _2_BUS_Layer.IBUSServices;
+using _2_BUS_Layer.Utility;
 
 namespace _3_GUI_Layer
 {
     public partial class FrmLogin : Form
     {
         private ILoginService _iLogingservice = new _2_BUS_Layer.BUSServices.LoginService();
+
+        public delegate void sendData(bool StatusLogin , string MaNhanVien);
+        public event sendData SetStatus;
+
         public FrmLogin()
         {
             InitializeComponent();
@@ -38,20 +43,21 @@ namespace _3_GUI_Layer
             var mail = txtTK.Text;
             var password = txtMk.Text;
             var result = _iLogingservice.CheckLogin(mail, password);
-            if (_iLogingservice.SenderTrangThaiMatKhau() == false)
-            {
-                MessageBox.Show("Hãy đổi mật khẩu để sử dụng");
-                FrmDoiMatKhau frmDoiMatKhau = new FrmDoiMatKhau();
-                frmDoiMatKhau.Show();
-                this.Close();
-                return;
-            }
             if (result == true)
             {
-                FrmMain frmMain = new FrmMain();
-                frmMain.changeStatus(result, _iLogingservice.SenderMaNV());
-                frmMain.Show();
-                this.Hide();
+                if (_iLogingservice.SenderNhanVien(mail).TrangThaiMatKhau == false)
+                {
+                    MessageBox.Show("Hãy đổi mật khẩu để sử dụng");
+                    FrmDoiMatKhau frmDoiMatKhau = new FrmDoiMatKhau();
+                    frmDoiMatKhau.Show();
+                    this.Close();
+                    return;
+                }
+                else
+                {
+                    this.SetStatus(true , _iLogingservice.SenderNhanVien(mail).Ma_NhanVien);
+                }
+                this.Close();
             }
             else
             {

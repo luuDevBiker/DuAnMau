@@ -10,7 +10,7 @@ namespace _1_DAL_Layer.IDALService
 {
     public interface IAccountServices
     {
-        public NhanVien getNhanVien(string Mail , string password);
+        public NhanVien getNhanVien(string Mail);
         public string updatePassword(NhanVien nhanVien);
     }
 }

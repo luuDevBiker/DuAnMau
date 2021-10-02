@@ -13,15 +13,15 @@ namespace _1_DAL_Layer.DALService
     {
         private DBcontext DbContext = new DBcontext();
 
-        public NhanVien getNhanVien(string Mail, string password)
+        public NhanVien getNhanVien(string Mail)
         {
             try
             {
-                var NhanVien = DbContext.NhanViens.ToList().Where(x => x.Email == Mail && x.MatKhau == password).ToList()[0];
+                var NhanVien = DbContext.NhanViens.ToList().Where(x => x.Email == Mail).ToList()[0];
                 return NhanVien;
             }
-            catch (Exception e)
-            { 
+            catch
+            {
                 return null;
             }
         }

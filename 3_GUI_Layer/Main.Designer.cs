@@ -29,7 +29,6 @@ namespace _3_GUI_Layer
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TPSM_DangNhap = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +58,7 @@ namespace _3_GUI_Layer
             this.hướngToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(1309, 28);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -87,19 +86,21 @@ namespace _3_GUI_Layer
             this.TSMI_DangXuat.Name = "TSMI_DangXuat";
             this.TSMI_DangXuat.Size = new System.Drawing.Size(198, 26);
             this.TSMI_DangXuat.Text = "Đăng xuất";
-            this.TSMI_DangXuat.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.TSMI_DangXuat.Click += new System.EventHandler(this.TSMI_DangXuat_Click);
             // 
             // TSMI_HoSoNV
             // 
             this.TSMI_HoSoNV.Name = "TSMI_HoSoNV";
             this.TSMI_HoSoNV.Size = new System.Drawing.Size(198, 26);
             this.TSMI_HoSoNV.Text = "Hồ sơ nhân viên";
+            this.TSMI_HoSoNV.Click += new System.EventHandler(this.TSMI_HoSoNV_Click);
             // 
             // TSMI_Thoat
             // 
             this.TSMI_Thoat.Name = "TSMI_Thoat";
             this.TSMI_Thoat.Size = new System.Drawing.Size(198, 26);
             this.TSMI_Thoat.Text = "Thoát";
+            this.TSMI_Thoat.Click += new System.EventHandler(this.TSMI_Thoat_Click);
             // 
             // danhMụcToolStripMenuItem
             // 
@@ -131,6 +132,7 @@ namespace _3_GUI_Layer
             this.TPSM_KhachHang.Name = "TPSM_KhachHang";
             this.TPSM_KhachHang.Size = new System.Drawing.Size(172, 26);
             this.TPSM_KhachHang.Text = "Khách Hàng";
+            this.TPSM_KhachHang.Click += new System.EventHandler(this.TPSM_KhachHang_Click);
             // 
             // thốngKêToolStripMenuItem
             // 
@@ -146,6 +148,7 @@ namespace _3_GUI_Layer
             this.TPSM_ThongKe.Name = "TPSM_ThongKe";
             this.TPSM_ThongKe.Size = new System.Drawing.Size(224, 26);
             this.TPSM_ThongKe.Text = "Thống Kê Sản Phẩm";
+            this.TPSM_ThongKe.Click += new System.EventHandler(this.TPSM_ThongKe_Click);
             // 
             // hướngToolStripMenuItem
             // 
@@ -162,12 +165,14 @@ namespace _3_GUI_Layer
             this.TPSM_HuóngDan.Name = "TPSM_HuóngDan";
             this.TPSM_HuóngDan.Size = new System.Drawing.Size(224, 26);
             this.TPSM_HuóngDan.Text = "Hướng dẫn sử dụng";
+            this.TPSM_HuóngDan.Click += new System.EventHandler(this.TPSM_HuóngDan_Click);
             // 
             // TPSM_GioiThieu
             // 
             this.TPSM_GioiThieu.Name = "TPSM_GioiThieu";
             this.TPSM_GioiThieu.Size = new System.Drawing.Size(224, 26);
             this.TPSM_GioiThieu.Text = "Giới thiệu sản phẩm";
+            this.TPSM_GioiThieu.Click += new System.EventHandler(this.TPSM_GioiThieu_Click);
             // 
             // FrmMain
             // 
@@ -175,13 +180,15 @@ namespace _3_GUI_Layer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1309, 753);
             this.Controls.Add(this.menuStrip2);
+            this.IsMdiContainer = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmMain";
+            this.ShowIcon = false;
             this.Text = "Main";
-            this.TransparencyKey = System.Drawing.Color.Red;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.menuStrip2.ResumeLayout(false);

@@ -121,4 +121,7 @@
   <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Publics\img\images.jfif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="b013aa85b10574e9e630ab19e9c99fd0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b013aa85b10574e9e630ab19e9c99fd0.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

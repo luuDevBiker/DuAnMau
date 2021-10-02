@@ -39,17 +39,17 @@ namespace _2_BUS_Layer.Utility
                 .Select(s => s[random.Next(s.Length)]).ToArray());
             return randomString;
         }
-        public string SenderMail(string Mail)
+        public string SenderMail(string Mail , string Pass)
         {
             try
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 25);
                 NetworkCredential cred = new NetworkCredential("luulvph13892@fpt.edu.vn", "developer102");
                 MailMessage mgs = new MailMessage();
-                mgs.From = new MailAddress("huyenvtph17141@fpt.edu.vn");
-                mgs.To.Add("luulvph13892@fpt.edu.vn");
+                mgs.From = new MailAddress("Chuối Cụ Lập Trình");
+                mgs.To.Add(Mail);
                 mgs.Subject = "ban da su dung tinh nang quen mat khau";
-                mgs.Body = "chao anh/chi .mat khau moi truy cap phan mem la " + 123;
+                mgs.Body = "chao anh/chi .mat khau moi truy cap phan mem la :" + Pass;
                 client.Credentials = cred;
                 client.EnableSsl = true;
                 client.Send(mgs);

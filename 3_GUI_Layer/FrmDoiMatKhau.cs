@@ -38,7 +38,7 @@ namespace _3_GUI_Layer
                 txtMail.Focus();
                 return;
             }
-            var nhanvien = _iloginService.SenderNhanVien(mail, pass);
+            var nhanvien = _iloginService.SenderNhanVien(mail);
             nhanvien.MatKhau = passnew2;
             nhanvien.TrangThaiMatKhau = true;
             MessageBox.Show(_iloginService.DoiMatKhau(nhanvien));

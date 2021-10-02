@@ -32,7 +32,7 @@ namespace _3_GUI_Layer
             this.lblBackPass = new System.Windows.Forms.Label();
             this.btnsenMail = new System.Windows.Forms.Button();
             this.lblMail = new System.Windows.Forms.Label();
-            this.txtMaXacNhan = new System.Windows.Forms.TextBox();
+            this.txtMail = new System.Windows.Forms.TextBox();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.pbBackPass = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackPass)).BeginInit();
@@ -54,7 +54,7 @@ namespace _3_GUI_Layer
             this.btnsenMail.Name = "btnsenMail";
             this.btnsenMail.Size = new System.Drawing.Size(175, 29);
             this.btnsenMail.TabIndex = 1;
-            this.btnsenMail.Text = "Xác nhận";
+            this.btnsenMail.Text = "Nhận Mật Khẩu Mới";
             this.btnsenMail.UseVisualStyleBackColor = true;
             this.btnsenMail.Click += new System.EventHandler(this.btnsenMail_Click);
             // 
@@ -64,16 +64,16 @@ namespace _3_GUI_Layer
             this.lblMail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMail.Location = new System.Drawing.Point(31, 141);
             this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(105, 20);
+            this.lblMail.Size = new System.Drawing.Size(89, 20);
             this.lblMail.TabIndex = 2;
-            this.lblMail.Text = "Mã xác nhận :";
+            this.lblMail.Text = "Nhập Mail :";
             // 
-            // txtMaXacNhan
+            // txtMail
             // 
-            this.txtMaXacNhan.Location = new System.Drawing.Point(142, 138);
-            this.txtMaXacNhan.Name = "txtMaXacNhan";
-            this.txtMaXacNhan.Size = new System.Drawing.Size(287, 27);
-            this.txtMaXacNhan.TabIndex = 3;
+            this.txtMail.Location = new System.Drawing.Point(142, 138);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(287, 27);
+            this.txtMail.TabIndex = 3;
             // 
             // btnDangNhap
             // 
@@ -105,7 +105,7 @@ namespace _3_GUI_Layer
             this.ClientSize = new System.Drawing.Size(471, 272);
             this.Controls.Add(this.pbBackPass);
             this.Controls.Add(this.btnDangNhap);
-            this.Controls.Add(this.txtMaXacNhan);
+            this.Controls.Add(this.txtMail);
             this.Controls.Add(this.lblMail);
             this.Controls.Add(this.btnsenMail);
             this.Controls.Add(this.lblBackPass);
@@ -123,7 +123,7 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.Label lblBackPass;
         private System.Windows.Forms.Button btnsenMail;
         private System.Windows.Forms.Label lblMail;
-        private System.Windows.Forms.TextBox txtMaXacNhan;
+        private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.PictureBox pbBackPass;
     }

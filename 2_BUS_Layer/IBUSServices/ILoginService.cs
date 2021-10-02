@@ -10,9 +10,7 @@ namespace _2_BUS_Layer.IBUSServices
     public interface ILoginService
     {
         public bool CheckLogin(string mail, string password);
-        public string SenderMaNV();
-        public bool SenderTrangThaiMatKhau();
-        public NhanVien SenderNhanVien(string Mail, string password);
+        public NhanVien SenderNhanVien(string Mail);
         public string DoiMatKhau(NhanVien nhanvien);
     }
 }
