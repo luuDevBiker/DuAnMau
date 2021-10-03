@@ -10,8 +10,8 @@ using _1_DAL_Layer.DataBaseContext;
 namespace _1_DAL_Layer.Migrations
 {
     [DbContext(typeof(DBcontext))]
-    [Migration("20210930230204_update_NhanVien")]
-    partial class update_NhanVien
+    [Migration("20211003185543_update-Key-hang")]
+    partial class updateKeyhang
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,7 +34,7 @@ namespace _1_DAL_Layer.Migrations
                     b.Property<int>("DonGiaBan")
                         .HasColumnType("int");
 
-                    b.Property<int>("DơnGiaNhap")
+                    b.Property<int>("DonGiaNhap")
                         .HasColumnType("int");
 
                     b.Property<string>("GhiChu")
@@ -44,9 +44,8 @@ namespace _1_DAL_Layer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Ma_NhanVien")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NhanVienMa_NhanVien")
+                        .IsRequired()
+                        .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<int>("SoLuong")
@@ -59,7 +58,7 @@ namespace _1_DAL_Layer.Migrations
 
                     b.HasKey("MaHang");
 
-                    b.HasIndex("NhanVienMa_NhanVien");
+                    b.HasIndex("Ma_NhanVien");
 
                     b.ToTable("Hangs");
                 });
@@ -78,10 +77,7 @@ namespace _1_DAL_Layer.Migrations
                     b.Property<int>("GioiTinh")
                         .HasColumnType("int");
 
-                    b.Property<string>("Ma_NhanVien")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NhanViensMa_NhanVien")
+                    b.Property<string>("Ma_NanVienMa_NhanVien")
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("TenKhachHang")
@@ -91,7 +87,7 @@ namespace _1_DAL_Layer.Migrations
 
                     b.HasKey("SDT");
 
-                    b.HasIndex("NhanViensMa_NhanVien");
+                    b.HasIndex("Ma_NanVienMa_NhanVien");
 
                     b.ToTable("KhachHangs");
                 });
@@ -112,8 +108,8 @@ namespace _1_DAL_Layer.Migrations
 
                     b.Property<string>("MatKhau")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("TenNhanVien")
                         .IsRequired()
@@ -121,6 +117,9 @@ namespace _1_DAL_Layer.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<bool>("TrangThai")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("TrangThaiMatKhau")
                         .HasColumnType("bit");
 
                     b.Property<int>("VaiTro")
@@ -134,19 +133,28 @@ namespace _1_DAL_Layer.Migrations
             modelBuilder.Entity("_1_DAL_Layer.Entitys.Hang", b =>
                 {
                     b.HasOne("_1_DAL_Layer.Entitys.NhanVien", "NhanVien")
-                        .WithMany()
-                        .HasForeignKey("NhanVienMa_NhanVien");
+                        .WithMany("Hangs")
+                        .HasForeignKey("Ma_NhanVien")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("NhanVien");
                 });
 
             modelBuilder.Entity("_1_DAL_Layer.Entitys.KhachHang", b =>
                 {
-                    b.HasOne("_1_DAL_Layer.Entitys.NhanVien", "NhanViens")
-                        .WithMany()
-                        .HasForeignKey("NhanViensMa_NhanVien");
+                    b.HasOne("_1_DAL_Layer.Entitys.NhanVien", "Ma_NanVien")
+                        .WithMany("KhachHangs")
+                        .HasForeignKey("Ma_NanVienMa_NhanVien");
 
-                    b.Navigation("NhanViens");
+                    b.Navigation("Ma_NanVien");
+                });
+
+            modelBuilder.Entity("_1_DAL_Layer.Entitys.NhanVien", b =>
+                {
+                    b.Navigation("Hangs");
+
+                    b.Navigation("KhachHangs");
                 });
 #pragma warning restore 612, 618
         }

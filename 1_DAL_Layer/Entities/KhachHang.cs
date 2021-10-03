@@ -21,8 +21,6 @@ namespace _1_DAL_Layer.Entitys
         public string DiaChi { get; set; }
         [Required]
         public int GioiTinh { get; set; }
-        [ForeignKey("Ma_NhanVien")]
-        public string Ma_NhanVien { get; set; }
-        public NhanVien NhanViens { get; set; }
+        public NhanVien Ma_NanVien { get; set; }
     }
 }

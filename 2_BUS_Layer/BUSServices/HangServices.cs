@@ -46,5 +46,30 @@ namespace _2_BUS_Layer.BUSServices
             if (_ISanPhamServices.SendlstSanPham().Count == 0) return 1000;
             return _ISanPhamServices.SendlstSanPham().Select(x=>x.ID_Hang).Max();
         }
+
+        public bool checkHangExits(string TenHang)
+        {
+            try
+            {
+                var hang = SendlstSanPham().Where(x => x.TenHang == TenHang).FirstOrDefault();
+                if(hang != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        public int getMaxIDHang()
+        {
+            if (SendlstSanPham().Count == 0) return 1000;
+            return SendlstSanPham().Max(x => x.ID_Hang);
+        }
     }
 }

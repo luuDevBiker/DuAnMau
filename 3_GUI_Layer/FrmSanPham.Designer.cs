@@ -41,8 +41,8 @@ namespace _3_GUI_Layer
             this.btnThem = new System.Windows.Forms.Button();
             this.grbNhanVien = new System.Windows.Forms.GroupBox();
             this.rtbGhiChu = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnOpenImg = new System.Windows.Forms.Button();
+            this.pcbAnhHang = new System.Windows.Forms.PictureBox();
             this.txtMaHang = new System.Windows.Forms.TextBox();
             this.lblMaHang = new System.Windows.Forms.Label();
             this.txtGiaBan = new System.Windows.Forms.TextBox();
@@ -58,7 +58,7 @@ namespace _3_GUI_Layer
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
             this.grButton.SuspendLayout();
             this.grbNhanVien.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbAnhHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,6 +134,7 @@ namespace _3_GUI_Layer
             this.btnLuu.TabIndex = 4;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnSua
             // 
@@ -167,8 +168,8 @@ namespace _3_GUI_Layer
             // 
             this.grbNhanVien.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.grbNhanVien.Controls.Add(this.rtbGhiChu);
-            this.grbNhanVien.Controls.Add(this.button1);
-            this.grbNhanVien.Controls.Add(this.pictureBox1);
+            this.grbNhanVien.Controls.Add(this.btnOpenImg);
+            this.grbNhanVien.Controls.Add(this.pcbAnhHang);
             this.grbNhanVien.Controls.Add(this.txtMaHang);
             this.grbNhanVien.Controls.Add(this.lblMaHang);
             this.grbNhanVien.Controls.Add(this.txtGiaBan);
@@ -193,32 +194,36 @@ namespace _3_GUI_Layer
             this.rtbGhiChu.Location = new System.Drawing.Point(536, 208);
             this.rtbGhiChu.Name = "rtbGhiChu";
             this.rtbGhiChu.Size = new System.Drawing.Size(449, 82);
-            this.rtbGhiChu.TabIndex = 7;
+            this.rtbGhiChu.TabIndex = 5;
             this.rtbGhiChu.Text = "";
             // 
-            // button1
+            // btnOpenImg
             // 
-            this.button1.Location = new System.Drawing.Point(858, 83);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 29);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "mở ảnh";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnOpenImg.Location = new System.Drawing.Point(858, 83);
+            this.btnOpenImg.Name = "btnOpenImg";
+            this.btnOpenImg.Size = new System.Drawing.Size(127, 29);
+            this.btnOpenImg.TabIndex = 6;
+            this.btnOpenImg.Text = "mở ảnh";
+            this.btnOpenImg.UseVisualStyleBackColor = true;
+            this.btnOpenImg.Click += new System.EventHandler(this.btnOpenImg_Click);
             // 
-            // pictureBox1
+            // pcbAnhHang
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(1009, 80);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(199, 210);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.pcbAnhHang.Location = new System.Drawing.Point(1009, 80);
+            this.pcbAnhHang.Name = "pcbAnhHang";
+            this.pcbAnhHang.Size = new System.Drawing.Size(199, 210);
+            this.pcbAnhHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbAnhHang.TabIndex = 5;
+            this.pcbAnhHang.TabStop = false;
             // 
             // txtMaHang
             // 
+            this.txtMaHang.Enabled = false;
             this.txtMaHang.Location = new System.Drawing.Point(142, 80);
             this.txtMaHang.Name = "txtMaHang";
+            this.txtMaHang.ReadOnly = true;
             this.txtMaHang.Size = new System.Drawing.Size(362, 27);
-            this.txtMaHang.TabIndex = 1;
+            this.txtMaHang.TabIndex = 100;
             // 
             // lblMaHang
             // 
@@ -236,14 +241,14 @@ namespace _3_GUI_Layer
             this.txtGiaBan.Location = new System.Drawing.Point(142, 267);
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.Size = new System.Drawing.Size(362, 27);
-            this.txtGiaBan.TabIndex = 2;
+            this.txtGiaBan.TabIndex = 4;
             // 
             // txtGiaNhap
             // 
             this.txtGiaNhap.Location = new System.Drawing.Point(142, 222);
             this.txtGiaNhap.Name = "txtGiaNhap";
             this.txtGiaNhap.Size = new System.Drawing.Size(362, 27);
-            this.txtGiaNhap.TabIndex = 2;
+            this.txtGiaNhap.TabIndex = 3;
             // 
             // lblGiaBan
             // 
@@ -279,7 +284,7 @@ namespace _3_GUI_Layer
             this.txtTenHang.Location = new System.Drawing.Point(142, 126);
             this.txtTenHang.Name = "txtTenHang";
             this.txtTenHang.Size = new System.Drawing.Size(362, 27);
-            this.txtTenHang.TabIndex = 2;
+            this.txtTenHang.TabIndex = 1;
             // 
             // lblSoLuong
             // 
@@ -351,7 +356,7 @@ namespace _3_GUI_Layer
             this.grButton.PerformLayout();
             this.grbNhanVien.ResumeLayout(false);
             this.grbNhanVien.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbAnhHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.ResumeLayout(false);
 
@@ -377,8 +382,8 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.Label lblTenHang;
         private System.Windows.Forms.Label lbFrmNhanVien;
         private System.Windows.Forms.RichTextBox rtbGhiChu;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnOpenImg;
+        private System.Windows.Forms.PictureBox pcbAnhHang;
         private System.Windows.Forms.TextBox txtGiaBan;
         private System.Windows.Forms.TextBox txtGiaNhap;
         private System.Windows.Forms.Label lblGiaBan;

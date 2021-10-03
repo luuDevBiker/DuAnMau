@@ -26,8 +26,9 @@ namespace _1_DAL_Layer.Entitys
         [Required]
         public byte[] AnhHang { get; set; }
         public string GhiChu { get; set; }
-
-        [ForeignKey("Ma_NhanVien")]
+        [ForeignKey("NhanVien")]
+        [Required]
+        [StringLength(20)]
         public string Ma_NhanVien { get; set; }
         public NhanVien NhanVien { get; set; }
     }

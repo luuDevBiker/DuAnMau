@@ -16,5 +16,7 @@ namespace _2_BUS_Layer.IBUSServices
         public string UpdateSanPham(Hang hang);
         public string DeleteSanPham(Hang hang);
         public string SaveSanPham();
+        public bool checkHangExits(string TenHang);
+        public int getMaxIDHang();
     }
 }

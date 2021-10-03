@@ -30,5 +30,8 @@ namespace _1_DAL_Layer.Entitys
         public bool TrangThai { get; set; }
         [Required]
         public bool TrangThaiMatKhau { get; set; }
+
+        public ICollection<Hang> Hangs { get; set; }
+        public ICollection<KhachHang> KhachHangs { get; set; }
     }
 }

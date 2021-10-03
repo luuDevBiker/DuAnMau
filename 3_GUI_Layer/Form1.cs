@@ -47,5 +47,15 @@ namespace _3_GUI_Layer
 
             textBox1.Text = sb.ToString();
         }
+
+        private void btntest2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "Image Files|*.jpg;*.jpeg;*.png;...";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                lblLink.Text = dlg.FileName;
+            }
+        }
     }
 }
