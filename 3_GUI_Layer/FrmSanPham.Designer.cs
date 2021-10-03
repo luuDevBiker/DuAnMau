@@ -40,17 +40,17 @@ namespace _3_GUI_Layer
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.grbNhanVien = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbGhiChu = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMaHang = new System.Windows.Forms.TextBox();
             this.lblMaHang = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtGiaBan = new System.Windows.Forms.TextBox();
+            this.txtGiaNhap = new System.Windows.Forms.TextBox();
             this.lblGiaBan = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.lblGiaNhap = new System.Windows.Forms.Label();
-            this.txtHoTen = new System.Windows.Forms.TextBox();
+            this.txtTenHang = new System.Windows.Forms.TextBox();
             this.lblSoLuong = new System.Windows.Forms.Label();
             this.lblDiaChi = new System.Windows.Forms.Label();
             this.lblTenHang = new System.Windows.Forms.Label();
@@ -166,17 +166,17 @@ namespace _3_GUI_Layer
             // grbNhanVien
             // 
             this.grbNhanVien.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.grbNhanVien.Controls.Add(this.richTextBox1);
+            this.grbNhanVien.Controls.Add(this.rtbGhiChu);
             this.grbNhanVien.Controls.Add(this.button1);
             this.grbNhanVien.Controls.Add(this.pictureBox1);
-            this.grbNhanVien.Controls.Add(this.textBox1);
+            this.grbNhanVien.Controls.Add(this.txtMaHang);
             this.grbNhanVien.Controls.Add(this.lblMaHang);
-            this.grbNhanVien.Controls.Add(this.textBox5);
-            this.grbNhanVien.Controls.Add(this.textBox3);
+            this.grbNhanVien.Controls.Add(this.txtGiaBan);
+            this.grbNhanVien.Controls.Add(this.txtGiaNhap);
             this.grbNhanVien.Controls.Add(this.lblGiaBan);
-            this.grbNhanVien.Controls.Add(this.textBox2);
+            this.grbNhanVien.Controls.Add(this.txtSoLuong);
             this.grbNhanVien.Controls.Add(this.lblGiaNhap);
-            this.grbNhanVien.Controls.Add(this.txtHoTen);
+            this.grbNhanVien.Controls.Add(this.txtTenHang);
             this.grbNhanVien.Controls.Add(this.lblSoLuong);
             this.grbNhanVien.Controls.Add(this.lblDiaChi);
             this.grbNhanVien.Controls.Add(this.lblTenHang);
@@ -188,13 +188,13 @@ namespace _3_GUI_Layer
             this.grbNhanVien.TabIndex = 4;
             this.grbNhanVien.TabStop = false;
             // 
-            // richTextBox1
+            // rtbGhiChu
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(536, 208);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(449, 82);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
+            this.rtbGhiChu.Location = new System.Drawing.Point(536, 208);
+            this.rtbGhiChu.Name = "rtbGhiChu";
+            this.rtbGhiChu.Size = new System.Drawing.Size(449, 82);
+            this.rtbGhiChu.TabIndex = 7;
+            this.rtbGhiChu.Text = "";
             // 
             // button1
             // 
@@ -213,12 +213,12 @@ namespace _3_GUI_Layer
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // txtMaHang
             // 
-            this.textBox1.Location = new System.Drawing.Point(142, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(362, 27);
-            this.textBox1.TabIndex = 1;
+            this.txtMaHang.Location = new System.Drawing.Point(142, 80);
+            this.txtMaHang.Name = "txtMaHang";
+            this.txtMaHang.Size = new System.Drawing.Size(362, 27);
+            this.txtMaHang.TabIndex = 1;
             // 
             // lblMaHang
             // 
@@ -231,19 +231,19 @@ namespace _3_GUI_Layer
             this.lblMaHang.TabIndex = 4;
             this.lblMaHang.Text = "Mã hàng :";
             // 
-            // textBox5
+            // txtGiaBan
             // 
-            this.textBox5.Location = new System.Drawing.Point(142, 267);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(362, 27);
-            this.textBox5.TabIndex = 2;
+            this.txtGiaBan.Location = new System.Drawing.Point(142, 267);
+            this.txtGiaBan.Name = "txtGiaBan";
+            this.txtGiaBan.Size = new System.Drawing.Size(362, 27);
+            this.txtGiaBan.TabIndex = 2;
             // 
-            // textBox3
+            // txtGiaNhap
             // 
-            this.textBox3.Location = new System.Drawing.Point(142, 222);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(362, 27);
-            this.textBox3.TabIndex = 2;
+            this.txtGiaNhap.Location = new System.Drawing.Point(142, 222);
+            this.txtGiaNhap.Name = "txtGiaNhap";
+            this.txtGiaNhap.Size = new System.Drawing.Size(362, 27);
+            this.txtGiaNhap.TabIndex = 2;
             // 
             // lblGiaBan
             // 
@@ -256,12 +256,12 @@ namespace _3_GUI_Layer
             this.lblGiaBan.TabIndex = 4;
             this.lblGiaBan.Text = "Giá bán :";
             // 
-            // textBox2
+            // txtSoLuong
             // 
-            this.textBox2.Location = new System.Drawing.Point(142, 175);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(362, 27);
-            this.textBox2.TabIndex = 2;
+            this.txtSoLuong.Location = new System.Drawing.Point(142, 175);
+            this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.Size = new System.Drawing.Size(362, 27);
+            this.txtSoLuong.TabIndex = 2;
             // 
             // lblGiaNhap
             // 
@@ -274,12 +274,12 @@ namespace _3_GUI_Layer
             this.lblGiaNhap.TabIndex = 4;
             this.lblGiaNhap.Text = "Giá Nhập :";
             // 
-            // txtHoTen
+            // txtTenHang
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(142, 126);
-            this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(362, 27);
-            this.txtHoTen.TabIndex = 2;
+            this.txtTenHang.Location = new System.Drawing.Point(142, 126);
+            this.txtTenHang.Name = "txtTenHang";
+            this.txtTenHang.Size = new System.Drawing.Size(362, 27);
+            this.txtTenHang.TabIndex = 2;
             // 
             // lblSoLuong
             // 
@@ -370,19 +370,19 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.GroupBox grbNhanVien;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMaHang;
         private System.Windows.Forms.Label lblMaHang;
-        private System.Windows.Forms.TextBox txtHoTen;
+        private System.Windows.Forms.TextBox txtTenHang;
         private System.Windows.Forms.Label lblDiaChi;
         private System.Windows.Forms.Label lblTenHang;
         private System.Windows.Forms.Label lbFrmNhanVien;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbGhiChu;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtGiaBan;
+        private System.Windows.Forms.TextBox txtGiaNhap;
         private System.Windows.Forms.Label lblGiaBan;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.Label lblGiaNhap;
         private System.Windows.Forms.Label lblSoLuong;
         private System.Windows.Forms.DataGridView dgvNhanVien;

@@ -20,7 +20,7 @@ namespace _1_DAL_Layer.Entitys
         [Required]
         public int SoLuong { get; set; }
         [Required]
-        public int DơnGiaNhap { get; set; }
+        public int DonGiaNhap { get; set; }
         [Required]
         public int DonGiaBan { get; set; }
         [Required]

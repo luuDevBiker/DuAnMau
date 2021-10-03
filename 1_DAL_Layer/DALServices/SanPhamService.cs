@@ -14,7 +14,34 @@ namespace _1_DAL_Layer.DALServices
     {
         private DBcontext _DBcontext = new DBcontext();
         private List<Hang> _lstHang;
-        public string GetlstHang()
+
+        public string AddSanPham(Hang hang)
+        {
+            try
+            {
+                _DBcontext.Hangs.Add(hang);
+                return "Thêm hàng thành công ";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+
+        public string DeleteSanPham(Hang hang)
+        {
+            try
+            {
+                _DBcontext.Hangs.Remove(hang);
+                return "Xóa hàng thành công ";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
+
+        public string GetlstSanPham()
         {
             try
             {
@@ -28,7 +55,20 @@ namespace _1_DAL_Layer.DALServices
 
         }
 
-        public List<Hang> SendlstHang()
+        public string SaveSanPham()
+        {
+            try
+            {
+                _DBcontext.SaveChanges();
+                return "Lưu dữ liệu thành công";
+            }
+            catch(Exception e)
+            {
+                return e.Message;
+            }
+        }
+
+        public List<Hang> SendlstSanPham()
         {
             try
             {
@@ -37,6 +77,20 @@ namespace _1_DAL_Layer.DALServices
             catch (Exception e)
             {
                 return null;
+            }
+        }
+
+        public string UpdateSanPham(Hang hang)
+        {
+            try
+            {
+                _DBcontext.Hangs.Update(hang);
+                return "Cập nhật thành công";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+                throw;
             }
         }
     }

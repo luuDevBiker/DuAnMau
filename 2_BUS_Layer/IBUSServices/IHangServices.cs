@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 using _1_DAL_Layer.Entitys;
 
 
-
-namespace _1_DAL_Layer.IDALServices
+namespace _2_BUS_Layer.IBUSServices
 {
-    public interface ISanPhamServices
+    public interface IHangServices
     {
         public string GetlstSanPham();
         public List<Hang> SendlstSanPham();
