@@ -16,7 +16,7 @@ namespace _3_GUI_Layer
     {
         private ILoginService _iLogingservice = new _2_BUS_Layer.BUSServices.LoginService();
 
-        public delegate void sendData(bool StatusLogin , string MaNhanVien);
+        public delegate void sendData(bool StatusLogin, string MaNhanVien, int VaiTroNhanVien);
         public event sendData SetStatus;
 
         public FrmLogin()
@@ -29,6 +29,7 @@ namespace _3_GUI_Layer
             try
             {
                 FrmBackPass frmBackPass = new FrmBackPass();
+                frmBackPass.MdiParent = this.MdiParent;
                 frmBackPass.Show();
                 this.Close();
             }
@@ -49,13 +50,14 @@ namespace _3_GUI_Layer
                 {
                     MessageBox.Show("Hãy đổi mật khẩu để sử dụng");
                     FrmDoiMatKhau frmDoiMatKhau = new FrmDoiMatKhau();
+                    frmDoiMatKhau.MdiParent = this.MdiParent;
                     frmDoiMatKhau.Show();
                     this.Close();
                     return;
                 }
                 else
                 {
-                    this.SetStatus(true , _iLogingservice.SenderNhanVien(mail).Ma_NhanVien);
+                    this.SetStatus(true, _iLogingservice.SenderNhanVien(mail).Ma_NhanVien, _iLogingservice.SenderNhanVien(mail).VaiTro);
                 }
                 this.Close();
             }
@@ -64,6 +66,18 @@ namespace _3_GUI_Layer
                 MessageBox.Show("Đăng nhập lại .");
             }
 
+        }
+
+        private void cbHienMK_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbHienMK.Checked == true)
+            {
+                txtMk.PasswordChar = '\0';
+            }
+            else
+            {
+                txtMk.PasswordChar = 'x';
+            }
         }
     }
 }

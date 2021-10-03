@@ -162,10 +162,10 @@ namespace _3_GUI_Layer
             // 
             // TPSM_HuóngDan
             // 
-            this.TPSM_HuóngDan.Name = "TPSM_HuóngDan";
+            this.TPSM_HuóngDan.Name = "TPSM_HuongDan";
             this.TPSM_HuóngDan.Size = new System.Drawing.Size(224, 26);
             this.TPSM_HuóngDan.Text = "Hướng dẫn sử dụng";
-            this.TPSM_HuóngDan.Click += new System.EventHandler(this.TPSM_HuóngDan_Click);
+            this.TPSM_HuóngDan.Click += new System.EventHandler(this.TPSM_HuongDan_Click);
             // 
             // TPSM_GioiThieu
             // 

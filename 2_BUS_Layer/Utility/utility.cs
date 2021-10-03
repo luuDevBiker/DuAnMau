@@ -29,35 +29,36 @@ namespace _2_BUS_Layer.Utility
 
             return sb.ToString();
         }
-        public string PassRandom()
+        public string PassRandom(int lengthCode)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";//String char for random password
 
             var random = new Random();
             // set string password random none repeat have length equals 6
-            var randomString = new string(Enumerable.Repeat(chars, 8)
+            var randomString = new string(Enumerable.Repeat(chars, lengthCode)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
             return randomString;
         }
-        public string SenderMail(string Mail , string Pass)
+
+        public string SenderMail(string Mail , string Pass , string code)
         {
             try
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 25);
                 NetworkCredential cred = new NetworkCredential("luulvph13892@fpt.edu.vn", "developer102");
                 MailMessage mgs = new MailMessage();
-                mgs.From = new MailAddress("Chuối Cụ Lập Trình");
+                mgs.From = new MailAddress(Mail);
                 mgs.To.Add(Mail);
                 mgs.Subject = "ban da su dung tinh nang quen mat khau";
-                mgs.Body = "chao anh/chi .mat khau moi truy cap phan mem la :" + Pass;
+                mgs.Body = "chao anh/chi .mat khau moi truy cap phan mem la : " + Pass +"\nMã xác nhận của bạn là :" + code + "\nMã sẽ vô hiệu lực sau 1 phút";
                 client.Credentials = cred;
                 client.EnableSsl = true;
                 client.Send(mgs);
                 return "send mail sucessful";
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return "send mail error";
+                return "send mail error : "+ e.Message;
             }
         }
     }

@@ -39,6 +39,7 @@ namespace _3_GUI_Layer
             this.llbQMK = new System.Windows.Forms.LinkLabel();
             this.cbNhoTaiKhoan = new System.Windows.Forms.CheckBox();
             this.pcbLogin = new System.Windows.Forms.PictureBox();
+            this.cbHienMK = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,6 +132,18 @@ namespace _3_GUI_Layer
             this.pcbLogin.TabIndex = 6;
             this.pcbLogin.TabStop = false;
             // 
+            // cbHienMK
+            // 
+            this.cbHienMK.AutoSize = true;
+            this.cbHienMK.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.cbHienMK.Location = new System.Drawing.Point(291, 232);
+            this.cbHienMK.Name = "cbHienMK";
+            this.cbHienMK.Size = new System.Drawing.Size(127, 24);
+            this.cbHienMK.TabIndex = 7;
+            this.cbHienMK.Text = "Hiện mật khẩu";
+            this.cbHienMK.UseVisualStyleBackColor = true;
+            this.cbHienMK.CheckedChanged += new System.EventHandler(this.cbHienMK_CheckedChanged);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -138,6 +151,7 @@ namespace _3_GUI_Layer
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(446, 320);
+            this.Controls.Add(this.cbHienMK);
             this.Controls.Add(this.pcbLogin);
             this.Controls.Add(this.cbNhoTaiKhoan);
             this.Controls.Add(this.llbQMK);
@@ -167,6 +181,7 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.LinkLabel llbQMK;
         private System.Windows.Forms.CheckBox cbNhoTaiKhoan;
         private System.Windows.Forms.PictureBox pcbLogin;
+        private System.Windows.Forms.CheckBox cbHienMK;
     }
 }
 

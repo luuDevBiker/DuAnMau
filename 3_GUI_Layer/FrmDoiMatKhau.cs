@@ -25,11 +25,23 @@ namespace _3_GUI_Layer
             var pass = txtPass.Text;
             var passnew = txtPassNew.Text;
             var passnew2 = txtPassNew2.Text;
+            NhanVien nhanvien = new NhanVien();
+            nhanvien = _iloginService.SenderNhanVien(mail);
+            if(nhanvien == null)
+            {
+                MessageBox.Show("Tài khoản không tồn tại !");
+                txtMail.Focus();
+                return;
+            }
             if(passnew != passnew2)
             {
                 MessageBox.Show("Mật khẩu không khớp");
                 txtPassNew.Focus();
                 return;
+            }
+            if(txtMail.Text.Length == 0 && txtPass.Text.Length == 0)
+            {
+                MessageBox.Show("Không được để trống thông tin");
             }
             var checklogin = _iloginService.CheckLogin(mail, pass);
             if(checklogin == false)
@@ -38,10 +50,30 @@ namespace _3_GUI_Layer
                 txtMail.Focus();
                 return;
             }
-            var nhanvien = _iloginService.SenderNhanVien(mail);
             nhanvien.MatKhau = passnew2;
             nhanvien.TrangThaiMatKhau = true;
             MessageBox.Show(_iloginService.DoiMatKhau(nhanvien));
+        }
+
+        private void cbHienMK_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbHienMK.Checked == true)
+            {
+                txtPass.PasswordChar = '\0';
+                txtPassNew.PasswordChar = '\0';
+                txtPassNew2.PasswordChar = '\0';
+            }
+            else
+            {
+                txtPass.PasswordChar = 'x';
+                txtPassNew.PasswordChar = 'x';
+                txtPassNew2.PasswordChar = 'x';
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

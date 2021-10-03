@@ -33,7 +33,6 @@ namespace _3_GUI_Layer
             this.btnsenMail = new System.Windows.Forms.Button();
             this.lblMail = new System.Windows.Forms.Label();
             this.txtMail = new System.Windows.Forms.TextBox();
-            this.btnDangNhap = new System.Windows.Forms.Button();
             this.pbBackPass = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackPass)).BeginInit();
             this.SuspendLayout();
@@ -75,15 +74,6 @@ namespace _3_GUI_Layer
             this.txtMail.Size = new System.Drawing.Size(287, 27);
             this.txtMail.TabIndex = 3;
             // 
-            // btnDangNhap
-            // 
-            this.btnDangNhap.Location = new System.Drawing.Point(31, 200);
-            this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(175, 29);
-            this.btnDangNhap.TabIndex = 4;
-            this.btnDangNhap.Text = "Đăng nhập";
-            this.btnDangNhap.UseVisualStyleBackColor = true;
-            // 
             // pbBackPass
             // 
             this.pbBackPass.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -104,7 +94,6 @@ namespace _3_GUI_Layer
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(471, 272);
             this.Controls.Add(this.pbBackPass);
-            this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.lblMail);
             this.Controls.Add(this.btnsenMail);
@@ -124,7 +113,6 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.Button btnsenMail;
         private System.Windows.Forms.Label lblMail;
         private System.Windows.Forms.TextBox txtMail;
-        private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.PictureBox pbBackPass;
     }
 }

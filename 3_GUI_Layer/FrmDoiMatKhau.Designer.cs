@@ -41,6 +41,7 @@ namespace _3_GUI_Layer
             this.txtPassNew2 = new System.Windows.Forms.TextBox();
             this.btnDoiMatKhau = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.cbHienMK = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,7 +150,7 @@ namespace _3_GUI_Layer
             // 
             // btnDoiMatKhau
             // 
-            this.btnDoiMatKhau.Location = new System.Drawing.Point(237, 414);
+            this.btnDoiMatKhau.Location = new System.Drawing.Point(237, 435);
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.Size = new System.Drawing.Size(140, 43);
             this.btnDoiMatKhau.TabIndex = 5;
@@ -160,13 +161,26 @@ namespace _3_GUI_Layer
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(33, 414);
+            this.btnThoat.Location = new System.Drawing.Point(33, 435);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(140, 43);
             this.btnThoat.TabIndex = 6;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.UseWaitCursor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // cbHienMK
+            // 
+            this.cbHienMK.AutoSize = true;
+            this.cbHienMK.Location = new System.Drawing.Point(38, 402);
+            this.cbHienMK.Name = "cbHienMK";
+            this.cbHienMK.Size = new System.Drawing.Size(127, 24);
+            this.cbHienMK.TabIndex = 7;
+            this.cbHienMK.Text = "Hiện mật khẩu";
+            this.cbHienMK.UseVisualStyleBackColor = true;
+            this.cbHienMK.UseWaitCursor = true;
+            this.cbHienMK.CheckedChanged += new System.EventHandler(this.cbHienMK_CheckedChanged);
             // 
             // FrmDoiMatKhau
             // 
@@ -175,6 +189,7 @@ namespace _3_GUI_Layer
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(399, 481);
+            this.Controls.Add(this.cbHienMK);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDoiMatKhau);
             this.Controls.Add(this.txtPassNew2);
@@ -213,5 +228,6 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.TextBox txtPassNew2;
         private System.Windows.Forms.Button btnDoiMatKhau;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.CheckBox cbHienMK;
     }
 }

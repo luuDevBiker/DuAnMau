@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1_DAL_Layer.IDALServices
 {
-    interface INhanViens
+    public interface INhanViensService
     {
     }
 }

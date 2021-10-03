@@ -14,16 +14,18 @@ namespace _3_GUI_Layer
     {
         public string _MaNhanVien;
         public bool _StatusLogin;
-        public FrmMain Self;
+        private int _VaiTroNhanVien;
+
+
         public FrmMain()
         {
             InitializeComponent();
-            Self = this;
         }
-        private void SetStatus(bool statusLogin , string MaNhanVien)
+        private void SetStatus(bool statusLogin , string MaNhanVien , int VaiTroNhanvien)
         {
             _StatusLogin = statusLogin;
             _MaNhanVien = MaNhanVien;
+            _VaiTroNhanVien = VaiTroNhanvien;
         }
         private bool checkForm(string nameForm)
         {
@@ -55,7 +57,11 @@ namespace _3_GUI_Layer
             try
             {
                 if (checkForm("frmSanPham") == true) return;
-                if (_StatusLogin == false) MessageBox.Show("hãy đăng nhập để sử dụng");
+                if (_StatusLogin == false)
+                {
+                    MessageBox.Show("hãy đăng nhập để sử dụng");
+                    return;
+                }
                 FrmSanPham frmSanPham = new FrmSanPham();
                 frmSanPham.MdiParent = this;
                 frmSanPham.Show();
@@ -70,8 +76,13 @@ namespace _3_GUI_Layer
         private void TPSM_NhanVien_Click(object sender, EventArgs e)
         {
             if (checkForm("frmNhanVien") == true) return;
-            if (_StatusLogin == false) MessageBox.Show("hãy đăng nhập để sử dụng");
+            if (_StatusLogin == false)
+            {
+                MessageBox.Show("hãy đăng nhập để sử dụng");
+                return;
+            }
             FrmNhanVien frmNhanVien = new FrmNhanVien();
+            frmNhanVien.MdiParent = this;
             frmNhanVien.Show();
         }
 
@@ -90,22 +101,35 @@ namespace _3_GUI_Layer
         private void TSMI_HoSoNV_Click(object sender, EventArgs e)
         {
             if (checkForm("frmNhanVien") == true) return;
-            if (_StatusLogin == false) MessageBox.Show("hãy đăng nhập để sử dụng");
+            if (_StatusLogin == false)
+            {
+                MessageBox.Show("hãy đăng nhập để sử dụng");
+                return;
+            }
         }
 
         private void TPSM_KhachHang_Click(object sender, EventArgs e)
         {
             if (checkForm("frmNhanVien") == true) return;
-            if (_StatusLogin == false) MessageBox.Show("hãy đăng nhập để sử dụng");
+            if (_StatusLogin == false)
+            {
+                MessageBox.Show("hãy đăng nhập để sử dụng");
+                return;
+            }
         }
 
         private void TPSM_ThongKe_Click(object sender, EventArgs e)
         {
             if (checkForm("frmNhanVien") == true) return;
-            if (_StatusLogin == false) MessageBox.Show("hãy đăng nhập để sử dụng");
+            if (_StatusLogin == false)
+            {
+                MessageBox.Show("hãy đăng nhập để sử dụng"); 
+                return;
+            }
+
         }
 
-        private void TPSM_HuóngDan_Click(object sender, EventArgs e)
+        private void TPSM_HuongDan_Click(object sender, EventArgs e)
         {
 
         }

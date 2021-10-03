@@ -64,6 +64,7 @@ namespace _3_GUI_Layer
             // 
             // grButton
             // 
+            this.grButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.grButton.Controls.Add(this.textBox4);
             this.grButton.Controls.Add(this.btnTimKiem);
             this.grButton.Controls.Add(this.btnDong);
@@ -160,9 +161,11 @@ namespace _3_GUI_Layer
             this.btnThem.TabIndex = 1;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // grbNhanVien
             // 
+            this.grbNhanVien.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.grbNhanVien.Controls.Add(this.richTextBox1);
             this.grbNhanVien.Controls.Add(this.button1);
             this.grbNhanVien.Controls.Add(this.pictureBox1);
