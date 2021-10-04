@@ -15,7 +15,8 @@ namespace _1_DAL_Layer.IDALServices
         public List<Hang> SendlstSanPham();
         public string AddSanPham(Hang hang);
         public string UpdateSanPham(Hang hang);
-        public string DeleteSanPham(Hang hang);
+        public string DeleteSanPham(string MaHang);
         public string SaveSanPham();
+        public Hang SelectHang(string MaHang);
     }
 }

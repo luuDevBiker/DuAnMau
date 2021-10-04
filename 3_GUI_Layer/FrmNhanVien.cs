@@ -12,9 +12,15 @@ namespace _3_GUI_Layer
 {
     public partial class FrmNhanVien : Form
     {
+
         public FrmNhanVien()
         {
             InitializeComponent();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

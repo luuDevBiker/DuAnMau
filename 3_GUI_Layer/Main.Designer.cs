@@ -29,7 +29,6 @@ namespace _3_GUI_Layer
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TPSM_DangNhap = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_DangXuat = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,23 +43,9 @@ namespace _3_GUI_Layer
             this.hướngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TPSM_HuóngDan = new System.Windows.Forms.ToolStripMenuItem();
             this.TPSM_GioiThieu = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.danhMụcToolStripMenuItem,
-            this.thốngKêToolStripMenuItem,
-            this.hướngToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1309, 28);
-            this.menuStrip2.TabIndex = 1;
-            this.menuStrip2.Text = "menuStrip2";
             // 
             // fileToolStripMenuItem
             // 
@@ -116,21 +101,21 @@ namespace _3_GUI_Layer
             // TPSM_SanPham
             // 
             this.TPSM_SanPham.Name = "TPSM_SanPham";
-            this.TPSM_SanPham.Size = new System.Drawing.Size(172, 26);
+            this.TPSM_SanPham.Size = new System.Drawing.Size(224, 26);
             this.TPSM_SanPham.Text = "Sản Phẩm";
             this.TPSM_SanPham.Click += new System.EventHandler(this.TPSM_SanPham_Click);
             // 
             // TPSM_NhanVien
             // 
             this.TPSM_NhanVien.Name = "TPSM_NhanVien";
-            this.TPSM_NhanVien.Size = new System.Drawing.Size(172, 26);
+            this.TPSM_NhanVien.Size = new System.Drawing.Size(224, 26);
             this.TPSM_NhanVien.Text = "Nhân Viên";
             this.TPSM_NhanVien.Click += new System.EventHandler(this.TPSM_NhanVien_Click);
             // 
             // TPSM_KhachHang
             // 
             this.TPSM_KhachHang.Name = "TPSM_KhachHang";
-            this.TPSM_KhachHang.Size = new System.Drawing.Size(172, 26);
+            this.TPSM_KhachHang.Size = new System.Drawing.Size(224, 26);
             this.TPSM_KhachHang.Text = "Khách Hàng";
             this.TPSM_KhachHang.Click += new System.EventHandler(this.TPSM_KhachHang_Click);
             // 
@@ -162,7 +147,7 @@ namespace _3_GUI_Layer
             // 
             // TPSM_HuóngDan
             // 
-            this.TPSM_HuóngDan.Name = "TPSM_HuongDan";
+            this.TPSM_HuóngDan.Name = "TPSM_HuóngDan";
             this.TPSM_HuóngDan.Size = new System.Drawing.Size(224, 26);
             this.TPSM_HuóngDan.Text = "Hướng dẫn sử dụng";
             this.TPSM_HuóngDan.Click += new System.EventHandler(this.TPSM_HuongDan_Click);
@@ -173,6 +158,21 @@ namespace _3_GUI_Layer
             this.TPSM_GioiThieu.Size = new System.Drawing.Size(224, 26);
             this.TPSM_GioiThieu.Text = "Giới thiệu sản phẩm";
             this.TPSM_GioiThieu.Click += new System.EventHandler(this.TPSM_GioiThieu_Click);
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.danhMụcToolStripMenuItem,
+            this.thốngKêToolStripMenuItem,
+            this.hướngToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(1309, 28);
+            this.menuStrip2.TabIndex = 1;
+            this.menuStrip2.Text = "menuStrip2";
             // 
             // FrmMain
             // 
@@ -199,7 +199,7 @@ namespace _3_GUI_Layer
         }
 
         #endregion
-        private System.Windows.Forms.MenuStrip menuStrip2;
+
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TPSM_DangNhap;
         private System.Windows.Forms.ToolStripMenuItem TSMI_DangXuat;
@@ -214,5 +214,6 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.ToolStripMenuItem hướngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TPSM_HuóngDan;
         private System.Windows.Forms.ToolStripMenuItem TPSM_GioiThieu;
+        private System.Windows.Forms.MenuStrip menuStrip2;
     }
 }

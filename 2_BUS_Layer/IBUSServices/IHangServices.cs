@@ -14,9 +14,11 @@ namespace _2_BUS_Layer.IBUSServices
         public List<Hang> SendlstSanPham();
         public string AddSanPham(Hang hang);
         public string UpdateSanPham(Hang hang);
-        public string DeleteSanPham(Hang hang);
+        public string DeleteSanPham(string MaHang);
         public string SaveSanPham();
         public bool checkHangExits(string TenHang);
         public int getMaxIDHang();
+
+        public Hang SelectHang(string MaHang);
     }
 }

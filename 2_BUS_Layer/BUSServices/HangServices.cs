@@ -17,9 +17,9 @@ namespace _2_BUS_Layer.BUSServices
             return _ISanPhamServices.AddSanPham(hang);
         }
 
-        public string DeleteSanPham(Hang hang)
+        public string DeleteSanPham(string MaHang)
         {
-            return _ISanPhamServices.DeleteSanPham(hang);
+            return _ISanPhamServices.DeleteSanPham(MaHang);
         }
 
         public string GetlstSanPham()
@@ -61,7 +61,7 @@ namespace _2_BUS_Layer.BUSServices
                     return false;
                 }
             }
-            catch (Exception e)
+            catch
             {
                 throw;
             }
@@ -70,6 +70,10 @@ namespace _2_BUS_Layer.BUSServices
         {
             if (SendlstSanPham().Count == 0) return 1000;
             return SendlstSanPham().Max(x => x.ID_Hang);
+        }
+        public Hang SelectHang(string MaHang) 
+        {
+            return _ISanPhamServices.SelectHang(MaHang);
         }
     }
 }

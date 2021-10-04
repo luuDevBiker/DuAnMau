@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using _1_DAL_Layer.Entitys;
-using _2_BUS_Layer.IBUSServices;
-
-namespace _2_BUS_Layer.BUSServices
+using _1_DAL_Layer;
+namespace _1_DAL_Layer.DALServices
 {
-    public class NhanVienServices : _2_BUS_Layer.IBUSServices.INhanVienServices
+    public class NhanVienServices : IDALServices.INhanViensService
     {
         public string AddNhanVien(NhanVien nhanVien)
         {

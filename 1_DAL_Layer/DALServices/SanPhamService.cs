@@ -20,6 +20,7 @@ namespace _1_DAL_Layer.DALServices
             try
             {
                 _DBcontext.Hangs.Add(hang);
+                _lstHang.Add(hang);
                 return "Thêm hàng thành công ";
             }
             catch (Exception e)
@@ -28,10 +29,11 @@ namespace _1_DAL_Layer.DALServices
             }
         }
 
-        public string DeleteSanPham(Hang hang)
+        public string DeleteSanPham(string MaHang)
         {
             try
             {
+                var hang = _lstHang.Where(x => x.MaHang == MaHang).FirstOrDefault();
                 _DBcontext.Hangs.Remove(hang);
                 return "Xóa hàng thành công ";
             }
@@ -62,10 +64,15 @@ namespace _1_DAL_Layer.DALServices
                 _DBcontext.SaveChanges();
                 return "Lưu dữ liệu thành công";
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return e.Message;
             }
+        }
+
+        public Hang SelectHang(string MaHang)
+        {
+            return _lstHang.Where(x => x.MaHang == MaHang).FirstOrDefault();
         }
 
         public List<Hang> SendlstSanPham()
@@ -74,7 +81,7 @@ namespace _1_DAL_Layer.DALServices
             {
                 return _lstHang;
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }
@@ -84,6 +91,8 @@ namespace _1_DAL_Layer.DALServices
         {
             try
             {
+                var index = _lstHang.FindIndex(x => x.MaHang == hang.MaHang);
+                _lstHang[index] = hang;
                 _DBcontext.Hangs.Update(hang);
                 return "Cập nhật thành công";
             }

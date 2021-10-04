@@ -163,6 +163,7 @@ namespace _3_GUI_Layer
             this.btnThem.TabIndex = 1;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // grDGV
             // 
@@ -207,9 +208,11 @@ namespace _3_GUI_Layer
             // rdHoatDong
             // 
             this.rdHoatDong.AutoSize = true;
-            this.rdHoatDong.Location = new System.Drawing.Point(27, 15);
+            this.rdHoatDong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rdHoatDong.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.rdHoatDong.Location = new System.Drawing.Point(3, 15);
             this.rdHoatDong.Name = "rdHoatDong";
-            this.rdHoatDong.Size = new System.Drawing.Size(102, 24);
+            this.rdHoatDong.Size = new System.Drawing.Size(104, 24);
             this.rdHoatDong.TabIndex = 6;
             this.rdHoatDong.TabStop = true;
             this.rdHoatDong.Text = "Hoạt động";
@@ -218,9 +221,11 @@ namespace _3_GUI_Layer
             // rdNgungHoatDong
             // 
             this.rdNgungHoatDong.AutoSize = true;
-            this.rdNgungHoatDong.Location = new System.Drawing.Point(148, 15);
+            this.rdNgungHoatDong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rdNgungHoatDong.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.rdNgungHoatDong.Location = new System.Drawing.Point(164, 15);
             this.rdNgungHoatDong.Name = "rdNgungHoatDong";
-            this.rdNgungHoatDong.Size = new System.Drawing.Size(149, 24);
+            this.rdNgungHoatDong.Size = new System.Drawing.Size(155, 24);
             this.rdNgungHoatDong.TabIndex = 7;
             this.rdNgungHoatDong.TabStop = true;
             this.rdNgungHoatDong.Text = "Ngưng hoạt động";
@@ -245,9 +250,11 @@ namespace _3_GUI_Layer
             // rbQuanTri
             // 
             this.rbQuanTri.AutoSize = true;
-            this.rbQuanTri.Location = new System.Drawing.Point(260, 14);
+            this.rbQuanTri.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rbQuanTri.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.rbQuanTri.Location = new System.Drawing.Point(272, 14);
             this.rbQuanTri.Name = "rbQuanTri";
-            this.rbQuanTri.Size = new System.Drawing.Size(83, 24);
+            this.rbQuanTri.Size = new System.Drawing.Size(87, 24);
             this.rbQuanTri.TabIndex = 4;
             this.rbQuanTri.TabStop = true;
             this.rbQuanTri.Text = "Quản trị";
@@ -256,9 +263,11 @@ namespace _3_GUI_Layer
             // cbNhanVien
             // 
             this.cbNhanVien.AutoSize = true;
-            this.cbNhanVien.Location = new System.Drawing.Point(14, 14);
+            this.cbNhanVien.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cbNhanVien.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cbNhanVien.Location = new System.Drawing.Point(3, 14);
             this.cbNhanVien.Name = "cbNhanVien";
-            this.cbNhanVien.Size = new System.Drawing.Size(98, 24);
+            this.cbNhanVien.Size = new System.Drawing.Size(103, 24);
             this.cbNhanVien.TabIndex = 3;
             this.cbNhanVien.TabStop = true;
             this.cbNhanVien.Text = "Nhân Viên";
@@ -360,6 +369,7 @@ namespace _3_GUI_Layer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1181, 661);
             this.Controls.Add(this.grDGV);
             this.Controls.Add(this.grButton);
