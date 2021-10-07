@@ -18,8 +18,20 @@ namespace _1_DAL_Layer.DataBaseContext
                 optionsBuilder.UseSqlServer("Data Source=DEVELOPER\\SQLEXPRESS;Integrated Security=True;Initial Catalog=DuAnMau");
             }
         }
-        public DbSet<NhanVien> NhanViens { get; set; }
-        public DbSet<KhachHang> KhachHangs { get; set; }
-        public DbSet<Hang> Hangs { get; set; }
+        public DbSet<Employee> NhanViens { get; set; }
+        public DbSet<Customer> KhachHangs { get; set; }
+        public DbSet<Products> Hangs { get; set; }
+
+        //protected override void OnModelCreating(ModelBuilder builder)
+        //{
+        //    //All the telephones must be deleteded alongside a Person.
+        //    //Deleting a telephone must not delete the person it refers to.
+        //    builder.Entity<Employee>()
+        //        .HasMany(p => p.Products)
+        //        .WithOne(p => p.Employee);
+        //    builder.Entity<Employee>()
+        //        .HasMany(p => p.Customer)
+        //        .WithOne(p => p.Employee);
+        //}
     }
 }

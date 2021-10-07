@@ -8,21 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _1_DAL_Layer.DataBaseContext;
-using _1_DAL_Layer.DALService;
-using _1_DAL_Layer.IDALService;
 using _2_BUS_Layer.IBUSServices;
 using _2_BUS_Layer.BUSServices;
-using _1_DAL_Layer.Entitys;
 using System.Security.Cryptography;
 using System.Net.Mail;
 using System.Net;
-
+using System.Collections.Specialized;
+using System.Text.RegularExpressions;
 namespace _3_GUI_Layer
 {
     public partial class Form1 : Form
     {
-        private ILoginService _iLoginServices = new LoginService();
-        private IAccountServices _iAccountServices = new AccountServices();
         private DBcontext context = new DBcontext(); 
         public Form1()
         {
@@ -50,12 +46,22 @@ namespace _3_GUI_Layer
 
         private void btntest2_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Image Files|*.jpg;*.jpeg;*.png;...";
-            if (dlg.ShowDialog() == DialogResult.OK)
+            var mail = "luubiker@gmail.com";
+            using (WebClient webclient = new WebClient())
             {
-                lblLink.Text = dlg.FileName;
+                string url = "http://verify-email.org/";
+                NameValueCollection formData = new NameValueCollection();
+                formData["check"] = mail;
+                MessageBox.Show(formData+"");
+                byte[] responseBytes = webclient.UploadValues(url, "POST", formData);
+                string response = Encoding.ASCII.GetString(responseBytes);
+                if (response.Contains("Result: Ok"))
+                {
+                    MessageBox.Show("true");
+                }
+                MessageBox.Show("false");
             }
+
         }
     }
 }
