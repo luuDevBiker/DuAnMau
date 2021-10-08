@@ -11,5 +11,15 @@ namespace _2_BUS_Layer.Models
     {
         public Employee Employee { get; set; }
         public bool Status { get; set; }
+        public ViewEmployee()
+        {
+            Employee = new Employee();
+        }
+
+        public ViewEmployee(Employee employee, bool status)
+        {
+            Employee = employee;
+            Status = status;
+        }
     }
 }

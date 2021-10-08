@@ -15,21 +15,15 @@ namespace _2_BUS_Layer.Utility
     {
         public bool CheckMailExits(string mail)
         {
-
-            using (WebClient webclient = new WebClient())
+            try
             {
-                string url = "http://verify-email.org/";
-                NameValueCollection formData = new NameValueCollection();
-                formData["check"] = mail;
-                byte[] responseBytes = webclient.UploadValues(url, "POST", formData);
-                string response = Encoding.ASCII.GetString(responseBytes);
-                if (response.Contains("Result: Ok"))
-                {
-                    return true;
-                }
+                var addr = new System.Net.Mail.MailAddress(mail);
+                return true;
+            }
+            catch
+            {
                 return false;
             }
-
         }
 
         public string EncodePass(string password)

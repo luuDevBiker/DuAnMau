@@ -29,6 +29,6 @@ namespace _2_BUS_Layer.IBUSServices
         // check status datasave 
         public bool StatusData();
         // Select a Employee with Ep_Code send GUI to do update
-        public ViewEmployee SelectViewEp(string Ep_Code);
+        public ViewEmployee SelectViewEp(string CodeOrMail);
     }
 }

@@ -19,7 +19,7 @@ namespace _3_GUI_Layer
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCustomer());
+            Application.Run(new FrmMain());
         }
     }
 }

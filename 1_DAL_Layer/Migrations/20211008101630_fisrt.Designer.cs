@@ -10,8 +10,8 @@ using _1_DAL_Layer.DataBaseContext;
 namespace _1_DAL_Layer.Migrations
 {
     [DbContext(typeof(DBcontext))]
-    [Migration("20211006013749_Fisrt")]
-    partial class Fisrt
+    [Migration("20211008101630_fisrt")]
+    partial class fisrt
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

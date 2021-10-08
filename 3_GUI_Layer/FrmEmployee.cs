@@ -17,11 +17,14 @@ namespace _3_GUI_Layer
     public partial class FrmEmployee : Form
     {
         private Utility _Utility = new Utility();
-        private IManageEmployee _iManageEmployee = new ManageEmployee();
+        private IManageEmployee _iManageEmployee;
+        ViewEmployee _viewEp;
         private string _EpCode_Click;
         public FrmEmployee()
         {
             InitializeComponent();
+            _iManageEmployee = new ManageEmployee();
+            
         }
         #region Form method
         private void LoadData(List<ViewEmployee> lstView)
@@ -81,12 +84,12 @@ namespace _3_GUI_Layer
                 txtMail.Focus();
                 return true;
             }
-            //if (_Utility.CheckMailExits(txtMail.Text) == false)
-            //{
-            //    txtMail.Focus();
-            //    MessageBox.Show("Địa chỉ mail không tồn tại" );
-            //    return true;
-            //}
+            if (_Utility.CheckMailExits(txtMail.Text) == false)
+            {
+                txtMail.Focus();
+                MessageBox.Show("Địa chỉ mail không tồn tại");
+                return true;
+            }
             if (txtAddress.Text.Length == 0)
             {
                 txtAddress.Focus();
@@ -109,9 +112,9 @@ namespace _3_GUI_Layer
         }
         private ViewEmployee ViewEpAdd()
         {
-            ViewEmployee viewEp = new ViewEmployee();
-            var Ep = viewEp.Employee;
-            Ep.Ep_Id = _iManageEmployee.GetMaxID() + 1;
+            _viewEp = new ViewEmployee();
+            var Ep = _viewEp.Employee;
+            Ep.Ep_Id = _iManageEmployee.GetMaxID()+1;
             Ep.Ep_Code = "NV" + Ep.Ep_Id;
             Ep.Ep_Password = _Utility.PassRandom(8);
             Ep.Ep_Name = txtName.Text;
@@ -120,15 +123,14 @@ namespace _3_GUI_Layer
             Ep.Ep_Status = rdOn.Checked == true ? true : false;
             Ep.Ep_Role = rdAdmin.Checked == true ? 1 : 0;
             Ep.Ep_StatusPassword = false;
-            viewEp.Status = true;
-            return viewEp;
+            _viewEp.Status = true;
+            return _viewEp;
         }
         #endregion
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (CheckForm()) return;
             _iManageEmployee.Add(ViewEpAdd());
-            string mess = "Hãy đăng nhâp để thay đổi mật khẩu";
             LoadData(_iManageEmployee.GetlstView_Ep());
             ClearForm();
         }

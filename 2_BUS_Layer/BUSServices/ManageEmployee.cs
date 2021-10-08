@@ -18,7 +18,7 @@ namespace _2_BUS_Layer.BUSServices
         private List<Employee> _lstEps = new List<Employee>();
         private List<ViewEmployee> _lstViewEps;
         private bool _StatusSaveData;
-        private string _messSendMail = "Hãy đăng nhập để đổi mật khẩu.";
+        private string _messSendMail = "Bạn vừa được tạo tài khoản tại hệ thống chúng tôi . Hãy đăng nhập để đổi mật khẩu.";
         public ManageEmployee()
         {
             _iEmployeeService = new EmployeeService();
@@ -65,7 +65,10 @@ namespace _2_BUS_Layer.BUSServices
 
         public int GetMaxID()
         {
-            if (_lstViewEps.Count == 0) return 1000;
+            if (_lstViewEps.Count == 0)
+            {
+                return 1000;
+            }
             return _lstViewEps.Max(x => x.Employee.Ep_Id);
         }
         public void LoadlstView_Ep()
@@ -97,9 +100,9 @@ namespace _2_BUS_Layer.BUSServices
             return _iEmployeeService.Save();
         }
 
-        public ViewEmployee SelectViewEp(string Ep_Code)
+        public ViewEmployee SelectViewEp(string CodeOrMail)
         {
-            return _lstViewEps.Where(x => x.Employee.Ep_Code == Ep_Code).FirstOrDefault();
+            return _lstViewEps.Where(x => x.Employee.Ep_Code == CodeOrMail || x.Employee.Ep_Email == CodeOrMail).FirstOrDefault();
         }
 
         public bool StatusData()

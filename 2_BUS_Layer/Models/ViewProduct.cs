@@ -14,7 +14,8 @@ namespace _2_BUS_Layer.Models
         public bool Status { get; set; }
         public ViewProduct()
         {
-                
+            Employee = new Employee();
+            Products = new Products();
         }
 
         public ViewProduct(Employee employee, Products products, bool status)

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _1_DAL_Layer.Migrations
 {
-    public partial class Fisrt : Migration
+    public partial class fisrt : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
