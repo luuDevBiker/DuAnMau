@@ -1,4 +1,5 @@
-﻿using _2_BUS_Layer.Models;
+﻿using _1_DAL_Layer.Entitys;
+using _2_BUS_Layer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,5 +30,7 @@ namespace _2_BUS_Layer.IBUSServices
         public bool CheckNamePrd(string NamePrd);
         // get viewproduct with viewproduct_code
         public ViewProduct SelectViewProduct(string ViewPrd_Code);
+        // get Employee add Product
+        public Employee GetEmployee(string Ep_code);
     }
 }

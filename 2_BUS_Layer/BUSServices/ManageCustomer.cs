@@ -97,6 +97,7 @@ namespace _2_BUS_Layer.BUSServices
                        }).ToList();
             lst.ForEach(x =>
             {
+                ViewCustomer view = new ViewCustomer();
                 view.Employee = x.Employee;
                 view.Customer = x.Customer;
                 view.Status = x.Status;
@@ -112,6 +113,16 @@ namespace _2_BUS_Layer.BUSServices
         public bool StatusData()
         {
             return _StatusDataSave;
+        }
+
+        public Employee GetEmployee(string Ep_Code)
+        {
+            return _lstEps.Where(x => x.Ep_Code == Ep_Code).FirstOrDefault();
+        }
+
+        public ViewCustomer GetViewCustomer(string Ct_Phone)
+        {
+            return _lstViewCts.Where(x => x.Customer.Ct_PhoneNumber == Ct_Phone).FirstOrDefault(); 
         }
     }
 }

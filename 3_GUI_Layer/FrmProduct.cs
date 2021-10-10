@@ -12,13 +12,14 @@ using System.Windows.Forms;
 using _2_BUS_Layer.Models;
 using _2_BUS_Layer.BUSServices;
 using _2_BUS_Layer.IBUSServices;
+using System.Text.RegularExpressions;
 
 namespace _3_GUI_Layer
 {
     public partial class FrmProduct : Form
     {
-        private IManageProduct _iManageProduct = new ManageProduct();
-        private string _MaNhanVien = "NV1000";
+        private IManageProduct _iManageProduct;
+        private string _MaNhanVien;
         private string _Pr_Code;
         private int _Pr_Id;
         private ViewProduct _ViewPrd;
@@ -26,8 +27,13 @@ namespace _3_GUI_Layer
         public FrmProduct()
         {
             InitializeComponent();
+            _iManageProduct = new ManageProduct();
         }
         #region Tiện ích form
+        public void getEpCode(string Ep_code)
+        {
+            _MaNhanVien = Ep_code;
+        }
         private void LoadData(List<ViewProduct> lstHang)
         {
             dgvProduct.ColumnCount = 8;
@@ -59,18 +65,27 @@ namespace _3_GUI_Layer
         }
         private bool checkForm()
         {
-            if (txtExportPeice.Text.Length == 0 || txtImportPrice.Text.Length == 0 || txtPrQuanlity.Text.Length == 0 || txtPrName.Text.Length == 0)
+            bool result = false;
+            void RegexString(TextBox textbox, string regex)
             {
-                MessageBox.Show("Không được để trống thông tin");
-                return true;
+                if (Regex.IsMatch(textbox.Text, regex) || textbox.Text.Length == 0) ;
+                {
+                    MessageBox.Show("Sai định dạng");
+                    textbox.Focus();
+                    result = true;
+                }
             }
-            return false;
+            RegexString(txtPrName, "[a-zA-Z]");
+            RegexString(txtImportPrice, "[0-9]");
+            RegexString(txtExportPeice,"[0-9]");
+            RegexString(txtPrQuanlity,"[0-9]");
+            return result;
         }
         public string GetPathImage()
         {
             string path = "";
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            dlg.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp; *.jfif";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
 
@@ -80,16 +95,23 @@ namespace _3_GUI_Layer
         }
         public byte[] CopyImageToByteArray(string pathIMG)
         {
-            Image theImage = Image.FromFile(pathIMG);
-            using (MemoryStream memoryStream = new MemoryStream())
+            try
             {
-                theImage.Save(memoryStream, ImageFormat.Png);
-                return memoryStream.ToArray();
+                Image theImage = Image.FromFile(pathIMG);
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    theImage.Save(memoryStream, ImageFormat.Png);
+                    return memoryStream.ToArray();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
         private ViewProduct View_Pr()
         {
-            ViewProduct View= new ViewProduct();
+            ViewProduct View = new ViewProduct();
             var product = View.Products;
             product.Prd_Id = _iManageProduct.GetMaxID() + 1;
             product.Prd_Code = "MH" + product.Prd_Id;
@@ -98,9 +120,11 @@ namespace _3_GUI_Layer
             product.Prd_ImportPrice = Convert.ToInt32(txtImportPrice.Text);
             product.Prd_ExportPrice = Convert.ToInt32(txtExportPeice.Text);
             product.Prd_Image = _arrImg;
-            product.Prd_Note  = rtbAddress.Text;
+            product.Prd_Note = rtbAddress.Text;
             product.Ep_Code = _MaNhanVien;
-            return _ViewPrd;
+            View.Employee = _iManageProduct.GetEmployee(_MaNhanVien);
+            View.Status = true;
+            return View;
         }
         public Image byteArrayToImage(byte[] byteArrayIn)
         {
@@ -155,7 +179,7 @@ namespace _3_GUI_Layer
                 return;
             }
             var sp = View_Pr();
-            MessageBox.Show(_iManageProduct.Add(sp));
+            _iManageProduct.Add(sp);
             LoadData(_iManageProduct.GetlstView_Prd());
             ClearForm();
         }
@@ -172,15 +196,13 @@ namespace _3_GUI_Layer
             pcbAnhHang.Image = Image.FromFile(path);
         }
 
-
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (checkForm()) return;
             var View_Pr_Update = View_Pr();
             View_Pr_Update.Products.Prd_Code = _Pr_Code;
             View_Pr_Update.Products.Prd_Id = _Pr_Id;
-            MessageBox.Show(_iManageProduct.Update(View_Pr_Update));
+            _iManageProduct.Update(View_Pr_Update);
             LoadData(_iManageProduct.GetlstView_Prd());
             ClearForm();
         }
@@ -190,7 +212,7 @@ namespace _3_GUI_Layer
             var View_Pr_Delete = View_Pr();
             View_Pr_Delete.Products.Ep_Code = _Pr_Code;
             View_Pr_Delete.Products.Prd_Id = _Pr_Id;
-            MessageBox.Show(_iManageProduct.Delete(View_Pr_Delete));
+            _iManageProduct.Delete(View_Pr_Delete);
             ClearForm();
         }
 

@@ -222,6 +222,7 @@ namespace _3_GUI_Layer
             // 
             // txtPrName
             // 
+            this.txtPrName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             resources.ApplyResources(this.txtPrName, "txtPrName");
             this.txtPrName.Name = "txtPrName";
             // 

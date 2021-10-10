@@ -26,5 +26,9 @@ namespace _2_BUS_Layer.IBUSServices
         public List<ViewCustomer> GetlstView_Ct();
         // send status data save
         public bool StatusData();
+        // select ViewCustomer with customer code
+        public ViewCustomer GetViewCustomer(string Ct_Phone);
+        // select Employee
+        public Employee GetEmployee(string Ep_Code);
     }
 }

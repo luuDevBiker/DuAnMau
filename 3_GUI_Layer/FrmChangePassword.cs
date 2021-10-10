@@ -72,12 +72,12 @@ namespace _3_GUI_Layer
             {
                 MessageBox.Show("Không được để trống thông tin");
             }
-            var email = _ViewEp.Employee.Ep_Email;
-            var password = _ViewEp.Employee.Ep_Password;
             _ViewEp.Employee.Ep_Password = _Utility.EncodePass(passnew2);
-            _ViewEp.Employee.Ep_Status = true;
+            _ViewEp.Employee.Ep_StatusPassword = true;
             _iManageEmployee.Update(_ViewEp);
-            MessageBox.Show(_iManageEmployee.Save());
+            _iManageEmployee.Save();
+            MessageBox.Show("Đổi mật khẩu thành công . đăng nhập để sử dụng.");
+            this.Close();
         }
 
         private void cbHienMK_CheckedChanged(object sender, EventArgs e)

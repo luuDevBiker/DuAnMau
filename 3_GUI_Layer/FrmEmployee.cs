@@ -20,6 +20,7 @@ namespace _3_GUI_Layer
         private IManageEmployee _iManageEmployee;
         ViewEmployee _viewEp;
         private string _EpCode_Click;
+        private string _Ep_Code_Login;
         public FrmEmployee()
         {
             InitializeComponent();
@@ -27,6 +28,10 @@ namespace _3_GUI_Layer
             
         }
         #region Form method
+        public void GetEpCode(string Ep_Code)
+        {
+            _Ep_Code_Login = Ep_Code;
+        }
         private void LoadData(List<ViewEmployee> lstView)
         {
             dgvEmployee.ColumnCount = 7;
@@ -132,11 +137,12 @@ namespace _3_GUI_Layer
             if (CheckForm()) return;
             _iManageEmployee.Add(ViewEpAdd());
             LoadData(_iManageEmployee.GetlstView_Ep());
-            ClearForm();
+            ClearForm(); 
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+
             var Ep = _iManageEmployee.SelectViewEp(_EpCode_Click);
             MessageBox.Show(_iManageEmployee.Delete(Ep));
             LoadData(_iManageEmployee.GetlstView_Ep());

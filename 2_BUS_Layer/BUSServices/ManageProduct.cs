@@ -13,13 +13,21 @@ namespace _2_BUS_Layer.BUSServices
 {
     public class ManageProduct : IManageProduct
     {
-        private IProductServices _iProductServices = new ProductService();
-        private IEmployeeService _iEmployeeService = new EmployeeService();
-        private List<Employee> _lstEps = new List<Employee>();
-        private List<Products> _lstPrds = new List<Products>();
-        private List<ViewProduct> _lstViewPrds = new List<ViewProduct>();
+        private IProductServices _iProductServices;
+        private IEmployeeService _iEmployeeService;
+        private List<Employee> _lstEps;
+        private List<Products> _lstPrds;
+        private List<ViewProduct> _lstViewPrds;
 
-
+        public ManageProduct()
+        {
+            _iProductServices = new ProductService();
+            _iEmployeeService = new EmployeeService();
+            _lstEps = new List<Employee>();
+            _lstPrds = new List<Products>();
+            _lstViewPrds = new List<ViewProduct>();
+            LoadlstView_Prd();
+        }
         public string Add(ViewProduct Prd)
         {
             try
@@ -29,7 +37,6 @@ namespace _2_BUS_Layer.BUSServices
             }
             catch (Exception e)
             {
-
                 return e.Message;
             }
         }
@@ -73,7 +80,7 @@ namespace _2_BUS_Layer.BUSServices
 
         public int GetMaxID()
         {
-            if (_lstViewPrds.Max(x => x.Products.Prd_Id) < 0) return 1000;
+            if (_lstViewPrds.Count == 0) return 1000;
             return _lstViewPrds.Max(x => x.Products.Prd_Id);
         }
 
@@ -81,7 +88,23 @@ namespace _2_BUS_Layer.BUSServices
         {
             _lstEps = _iEmployeeService.Getlst();
             _lstPrds = _iProductServices.Getlst();
-            
+            var listview = (from ep in _lstEps
+                            join Pr in _lstPrds
+                            on ep.Ep_Code equals Pr.Ep_Code
+                            select new
+                            {
+                                Employee = ep,
+                                Products = Pr,
+                                Status = false
+                            });
+            listview.ToList().ForEach(x =>
+            {
+                ViewProduct view = new ViewProduct();
+                view.Employee = x.Employee;
+                view.Products = x.Products;
+                view.Status = x.Status;
+                _lstViewPrds.Add(view);
+            });
         }
 
         public string Update(ViewProduct Prd)
@@ -104,11 +127,17 @@ namespace _2_BUS_Layer.BUSServices
         }
         public string Save()
         {
+            Add();
             return _iProductServices.Save();
         }
         public ViewProduct SelectViewProduct(string ViewPrd_Code)
         {
             return _lstViewPrds.Where(x => x.Products.Prd_Code == ViewPrd_Code).FirstOrDefault();
+        }
+
+        public Employee GetEmployee(string Ep_code)
+        {
+            return _lstEps.Where(x => x.Ep_Code == Ep_code).FirstOrDefault();
         }
     }
 }

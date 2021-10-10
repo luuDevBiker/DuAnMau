@@ -21,12 +21,12 @@ namespace _3_GUI_Layer
         public delegate void loadForms();
         public event loadForms loadForm;
         public event sendData SetStatus;
-
+        private Utility _Utility;
         public FrmLogin()
         {
             InitializeComponent();
+            _Utility = new Utility();
         }
-
         private void llbQMK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try
@@ -47,9 +47,9 @@ namespace _3_GUI_Layer
             var mail = txtTK.Text;
             var password = txtMk.Text;
             var result = _iManageEmployee.SelectViewEp(mail);
-            if (result != null)
+            if (result != null && result.Employee.Ep_Password == _Utility.EncodePass(password))
             {
-                if (result.Employee.Ep_Status == false)
+                if (result.Employee.Ep_StatusPassword == false)
                 {
                     MessageBox.Show("Hãy đổi mật khẩu để sử dụng");
                     FrmChangePassword frmChangePassword = new FrmChangePassword();

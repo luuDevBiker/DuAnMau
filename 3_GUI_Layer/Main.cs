@@ -36,6 +36,7 @@ namespace _3_GUI_Layer
             _StatusLogin = statusLogin;
             _Ep_Code = Ep_Code;
             _RoleEmployee = Role_Ep;
+            lblNameEp.Text = Ep_Code+"";
         }
         private bool checkForm(string nameForm)
         {
@@ -48,7 +49,7 @@ namespace _3_GUI_Layer
             }
             return formExits;
         }
-        private void TPSM_DangNhap_Click(object sender, EventArgs e)
+        private void TPSM_Login_Click(object sender, EventArgs e)
         {
             if (checkForm("frmLogin") == true) return;
             if (_StatusLogin == true) return;
@@ -63,7 +64,7 @@ namespace _3_GUI_Layer
             Application.Exit();
         }
 
-        private void TPSM_SanPham_Click(object sender, EventArgs e)
+        private void TPSM_Product_Click(object sender, EventArgs e)
         {
             try
             {
@@ -73,9 +74,10 @@ namespace _3_GUI_Layer
                     MessageBox.Show("hãy đăng nhập để sử dụng");
                     return;
                 }
-                FrmProduct frmSanPham = new FrmProduct();
-                frmSanPham.MdiParent = this;
-                frmSanPham.Show();
+                FrmProduct frmProduct = new FrmProduct();
+                frmProduct.MdiParent = this;
+                frmProduct.getEpCode(_Ep_Code);
+                frmProduct.Show();
             }
             catch (Exception)
             {
@@ -84,7 +86,7 @@ namespace _3_GUI_Layer
             }
         }
 
-        private void TPSM_NhanVien_Click(object sender, EventArgs e)
+        private void TPSM_Employee_Click(object sender, EventArgs e)
         {
             if (checkForm("frmNhanVien") == true) return;
             if (_StatusLogin == false)
@@ -92,24 +94,28 @@ namespace _3_GUI_Layer
                 MessageBox.Show("hãy đăng nhập để sử dụng");
                 return;
             }
-            FrmEmployee frmNhanVien = new FrmEmployee();
-            frmNhanVien.MdiParent = this;
-            frmNhanVien.Show();
+            FrmEmployee frmEmployee = new FrmEmployee();
+            frmEmployee.MdiParent = this;
+            frmEmployee.GetEpCode(_Ep_Code);
+            frmEmployee.Show();
         }
 
-        private void TSMI_DangXuat_Click(object sender, EventArgs e)
+        private void TSMI_Logout_Click(object sender, EventArgs e)
         {
             _StatusLogin = false;
             _Ep_Code = "";
+            TPSM_Login.Visible = true;
+            TPSM_Employee.Visible = true;
+            lblNameEp.Text = "";
             MessageBox.Show("Đã đăng xuất ");
         }
 
-        private void TSMI_Thoat_Click(object sender, EventArgs e)
+        private void TSMI_Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void TSMI_HoSoNV_Click(object sender, EventArgs e)
+        private void TSMI_InforEp_Click(object sender, EventArgs e)
         {
             if (checkForm("frmNhanVien") == true) return;
             if (_StatusLogin == false)
@@ -119,7 +125,7 @@ namespace _3_GUI_Layer
             }
         }
 
-        private void TPSM_KhachHang_Click(object sender, EventArgs e)
+        private void TPSM_Customer_Click(object sender, EventArgs e)
         {
             if (checkForm("frmNhanVien") == true) return;
             if (_StatusLogin == false)
@@ -127,9 +133,13 @@ namespace _3_GUI_Layer
                 MessageBox.Show("hãy đăng nhập để sử dụng");
                 return;
             }
+            FrmCustomer frmCustomer = new FrmCustomer();
+            frmCustomer.MdiParent = this;
+            frmCustomer.GetEpCode(_Ep_Code);
+            frmCustomer.Show();
         }
 
-        private void TPSM_ThongKe_Click(object sender, EventArgs e)
+        private void TPSM_Statistical_Click(object sender, EventArgs e)
         {
             if (checkForm("frmNhanVien") == true) return;
             if (_StatusLogin == false)
@@ -140,12 +150,12 @@ namespace _3_GUI_Layer
 
         }
 
-        private void TPSM_HuongDan_Click(object sender, EventArgs e)
+        private void TPSM_Instructions_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void TPSM_GioiThieu_Click(object sender, EventArgs e)
+        private void TPSM_Introduce_Click(object sender, EventArgs e)
         {
 
         }
