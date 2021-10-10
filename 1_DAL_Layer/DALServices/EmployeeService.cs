@@ -26,7 +26,7 @@ namespace _1_DAL_Layer.DALServices
         {
             try
             {
-                _DBcontext.NhanViens.Update(Employee);
+                _DBcontext.Employees.Update(Employee);
                 return "successful";
             }
             catch (Exception e)
@@ -38,7 +38,7 @@ namespace _1_DAL_Layer.DALServices
         {
             try
             {
-                _DBcontext.NhanViens.Remove(Employee);
+                _DBcontext.Employees.Remove(Employee);
                 return "successful";
             }
             catch (Exception e)
@@ -60,7 +60,7 @@ namespace _1_DAL_Layer.DALServices
         }
         public List<Employee> Getlst()
         {
-            return _DBcontext.NhanViens.ToList();
+            return _DBcontext.Employees.ToList();
         }
     }
 }

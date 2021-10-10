@@ -47,9 +47,12 @@ namespace _2_BUS_Layer.BUSServices
             {
                 _lstViewPrds.ForEach(x =>
                 {
-                    if(x.Status)_iProductServices.Add(x.Products);
+                    if (x.Status)
+                    {
+                        _iProductServices.Add(x.Products);
+                        x.Status = false;
+                    }
                 });
-                _lstViewPrds.Clear();
                 return "Successful";
             }
             catch (Exception e)
@@ -96,8 +99,8 @@ namespace _2_BUS_Layer.BUSServices
                                 Employee = ep,
                                 Products = Pr,
                                 Status = false
-                            });
-            listview.ToList().ForEach(x =>
+                            }).ToList();
+            listview.ForEach(x =>
             {
                 ViewProduct view = new ViewProduct();
                 view.Employee = x.Employee;

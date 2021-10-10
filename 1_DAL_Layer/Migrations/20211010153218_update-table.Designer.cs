@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1_DAL_Layer.DataBaseContext;
 
 namespace _1_DAL_Layer.Migrations
 {
     [DbContext(typeof(DBcontext))]
-    partial class DBcontextModelSnapshot : ModelSnapshot
+    [Migration("20211010153218_update-table")]
+    partial class updatetable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,36 +46,7 @@ namespace _1_DAL_Layer.Migrations
 
                     b.HasIndex("Ep_Code");
 
-                    b.ToTable("Customer_Orders");
-                });
-
-            modelBuilder.Entity("_1_DAL_Layer.Entities.Customer_Order_Details", b =>
-                {
-                    b.Property<string>("CO_Code")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Prd_Code")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<int>("ExportPrice")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Sale")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Total")
-                        .HasColumnType("int");
-
-                    b.HasKey("CO_Code", "Prd_Code");
-
-                    b.HasIndex("Prd_Code");
-
-                    b.ToTable("Customer_Order_Details");
+                    b.ToTable("Customer_Order");
                 });
 
             modelBuilder.Entity("_1_DAL_Layer.Entitys.Customer", b =>
@@ -212,25 +185,6 @@ namespace _1_DAL_Layer.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("_1_DAL_Layer.Entities.Customer_Order_Details", b =>
-                {
-                    b.HasOne("_1_DAL_Layer.Entities.Customer_Order", "Customer_Order")
-                        .WithMany()
-                        .HasForeignKey("CO_Code")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("_1_DAL_Layer.Entitys.Products", "Products")
-                        .WithMany("Customer_Order_Details")
-                        .HasForeignKey("Prd_Code")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Customer_Order");
-
-                    b.Navigation("Products");
-                });
-
             modelBuilder.Entity("_1_DAL_Layer.Entitys.Customer", b =>
                 {
                     b.HasOne("_1_DAL_Layer.Entitys.Employee", "Employee")
@@ -263,11 +217,6 @@ namespace _1_DAL_Layer.Migrations
                     b.Navigation("Customer");
 
                     b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("_1_DAL_Layer.Entitys.Products", b =>
-                {
-                    b.Navigation("Customer_Order_Details");
                 });
 #pragma warning restore 612, 618
         }

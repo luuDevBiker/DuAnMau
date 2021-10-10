@@ -17,7 +17,7 @@ namespace _1_DAL_Layer.DALServices
         {
             try
             {
-                _DBcontext.Hangs.Add(Products);
+                _DBcontext.Products.Add(Products);
                 return "successful";
             }
             catch (Exception e)
@@ -29,7 +29,7 @@ namespace _1_DAL_Layer.DALServices
         {
             try
             {
-                _DBcontext.Hangs.Update(Products);
+                _DBcontext.Products.Update(Products);
                 return "successful";
             }
             catch (Exception e)
@@ -42,7 +42,7 @@ namespace _1_DAL_Layer.DALServices
         {
             try
             {
-                _DBcontext.Hangs.Remove(Products);
+                _DBcontext.Products.Remove(Products);
                 return "successful";
             }
             catch (Exception e)
@@ -66,7 +66,7 @@ namespace _1_DAL_Layer.DALServices
         {
             try
             {
-                return _DBcontext.Hangs.ToList();  
+                return _DBcontext.Products.ToList();  
             }
             catch
             {

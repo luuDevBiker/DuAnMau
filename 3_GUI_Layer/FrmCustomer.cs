@@ -16,7 +16,6 @@ namespace _3_GUI_Layer
         private IManageCustomer _iManageCustomer;
         private string _Ep_Code;
         private string _Ct_Phone_Click;
-        private string _Ep_Code_Click;
         public FrmCustomer()
         {
             InitializeComponent();
@@ -170,8 +169,8 @@ namespace _3_GUI_Layer
                 rdFemale.Checked = true;
             }
             txtPhoneNumber.Text = row[2].Value + "";
+            _Ct_Phone_Click = row[2].Value + "";
             txtAddress.Text = row[3].Value + "";
-            _Ep_Code_Click = row[4].Value+"";
         }
     }
 }

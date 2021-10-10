@@ -79,6 +79,7 @@ namespace _3_GUI_Layer
             // 
             // txtTK
             // 
+            this.txtTK.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtTK.Location = new System.Drawing.Point(154, 136);
             this.txtTK.Name = "txtTK";
             this.txtTK.Size = new System.Drawing.Size(264, 27);

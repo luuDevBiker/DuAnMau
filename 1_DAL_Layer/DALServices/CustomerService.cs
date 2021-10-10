@@ -17,7 +17,7 @@ namespace _1_DAL_Layer.DALServices
         {
             try
             {
-                _DBcontext.KhachHangs.Add(Customer);
+                _DBcontext.Customers.Add(Customer);
                 return "successful";
             }
             catch (Exception e)
@@ -29,7 +29,7 @@ namespace _1_DAL_Layer.DALServices
         {
             try
             {
-                _DBcontext.KhachHangs.Remove(Customer);
+                _DBcontext.Customers.Remove(Customer);
                 return "successful";
             }
             catch (Exception e)
@@ -39,7 +39,7 @@ namespace _1_DAL_Layer.DALServices
         }
         public List<Customer> Getlst()
         {
-            return _DBcontext.KhachHangs.ToList();
+            return _DBcontext.Customers.ToList();
         }
         public string Save()
         {
@@ -57,7 +57,7 @@ namespace _1_DAL_Layer.DALServices
         {
             try
             {
-                _DBcontext.KhachHangs.Update(Customer);
+                _DBcontext.Customers.Update(Customer);
                 return "successful";
             }
             catch (Exception e)

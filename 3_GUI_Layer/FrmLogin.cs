@@ -47,6 +47,11 @@ namespace _3_GUI_Layer
             var mail = txtTK.Text;
             var password = txtMk.Text;
             var result = _iManageEmployee.SelectViewEp(mail);
+            if(result.Employee.Ep_Status == false)
+            {
+                MessageBox.Show("Tài khoản đã ngưng hoạt động không thể đắng nhập");
+                return;
+            }
             if (result != null && result.Employee.Ep_Password == _Utility.EncodePass(password))
             {
                 if (result.Employee.Ep_StatusPassword == false)

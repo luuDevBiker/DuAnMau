@@ -22,7 +22,6 @@ namespace _3_GUI_Layer
         private string _MaNhanVien;
         private string _Pr_Code;
         private int _Pr_Id;
-        private ViewProduct _ViewPrd;
         private byte[] _arrImg;
         public FrmProduct()
         {
@@ -65,21 +64,7 @@ namespace _3_GUI_Layer
         }
         private bool checkForm()
         {
-            bool result = false;
-            void RegexString(TextBox textbox, string regex)
-            {
-                if (Regex.IsMatch(textbox.Text, regex) || textbox.Text.Length == 0) ;
-                {
-                    MessageBox.Show("Sai định dạng");
-                    textbox.Focus();
-                    result = true;
-                }
-            }
-            RegexString(txtPrName, "[a-zA-Z]");
-            RegexString(txtImportPrice, "[0-9]");
-            RegexString(txtExportPeice,"[0-9]");
-            RegexString(txtPrQuanlity,"[0-9]");
-            return result;
+            return false;
         }
         public string GetPathImage()
         {
@@ -150,9 +135,8 @@ namespace _3_GUI_Layer
             txtExportPeice.Text = row.Cells[3].Value + "";
             rtbAddress.Text = row.Cells[4].Value + "";
             txtPrCode.Text = row.Cells[5].Value + "";
-            pcbAnhHang.Image = byteArrayToImage((byte[])row.Cells[6].Value);
             _Pr_Code = row.Cells[5].Value + "";
-            _arrImg = (byte[])row.Cells[6].Value;
+            pcbAnhHang.Image = byteArrayToImage((byte[])row.Cells[7].Value);
             // Enabled button
             btnAdd.Enabled = false;
         }
