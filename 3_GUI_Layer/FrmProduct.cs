@@ -13,6 +13,7 @@ using _2_BUS_Layer.Models;
 using _2_BUS_Layer.BUSServices;
 using _2_BUS_Layer.IBUSServices;
 using System.Text.RegularExpressions;
+using System.Collections;
 
 namespace _3_GUI_Layer
 {
@@ -32,10 +33,23 @@ namespace _3_GUI_Layer
         public void getEpCode(string Ep_code)
         {
             _MaNhanVien = Ep_code;
+            MessageBox.Show(Ep_code + " " + _MaNhanVien);
         }
         private void LoadData(List<ViewProduct> lstHang)
         {
             dgvProduct.ColumnCount = 8;
+            DataGridViewComboBoxColumn dgvCmb = new DataGridViewComboBoxColumn();
+            dgvCmb.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
+            
+            dgvCmb.HeaderText = "Name";
+            dgvCmb.Items.Add("Ghanashyam");
+            dgvCmb.Items.Add("Jignesh");
+            dgvCmb.Items.Add("Ishver");
+            dgvCmb.Items.Add("Anand");
+            dgvCmb.Name = "cmbName";
+            dgvCmb.DropDownWidth = 
+            dgvProduct.Columns.Add(dgvCmb);
+
             dgvProduct.Columns[0].Name = "Tên Sản Phẩm";
             dgvProduct.Columns[1].Name = "Số Lượng";
             dgvProduct.Columns[2].Name = "Giá Nhập";
@@ -46,6 +60,8 @@ namespace _3_GUI_Layer
             dgvProduct.Columns[6].Name = "Người nhập";
             dgvProduct.Columns[7].Name = "Ảnh";
             dgvProduct.Columns[7].Visible = false;
+
+
 
             dgvProduct.Rows.Clear();
             foreach (var x in lstHang)
@@ -105,6 +121,7 @@ namespace _3_GUI_Layer
             product.Prd_ImportPrice = Convert.ToInt32(txtImportPrice.Text);
             product.Prd_ExportPrice = Convert.ToInt32(txtExportPeice.Text);
             product.Prd_Image = _arrImg;
+            product.Img_Barcode = _arrImg;
             product.Prd_Note = rtbAddress.Text;
             product.Ep_Code = _MaNhanVien;
             View.Employee = _iManageProduct.GetEmployee(_MaNhanVien);
@@ -124,10 +141,11 @@ namespace _3_GUI_Layer
                 throw;
             }
         }
-        private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int indexRow = e.RowIndex;
-            if (indexRow < 0) return;
+
+            if (indexRow >= _iManageProduct.GetlstView_Prd().Count || indexRow < 0) return;
             var row = dgvProduct.Rows[indexRow];
             txtPrName.Text = row.Cells[0].Value + "";
             txtPrQuanlity.Text = row.Cells[1].Value + "";
@@ -137,6 +155,7 @@ namespace _3_GUI_Layer
             txtPrCode.Text = row.Cells[5].Value + "";
             _Pr_Code = row.Cells[5].Value + "";
             pcbAnhHang.Image = byteArrayToImage((byte[])row.Cells[7].Value);
+
             // Enabled button
             btnAdd.Enabled = false;
         }

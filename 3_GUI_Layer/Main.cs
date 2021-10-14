@@ -19,6 +19,7 @@ namespace _3_GUI_Layer
         public FrmMain()
         {
             InitializeComponent();
+            loadForm();
         }
         private void loadForm()
         {
@@ -29,6 +30,12 @@ namespace _3_GUI_Layer
             if(_StatusLogin == true)
             {
                 TPSM_Login.Visible = false;
+                TSMI_Logout.Visible = true;
+            }
+            else
+            {
+                TSMI_Logout.Visible = false;
+                TPSM_Login.Visible = true;
             }
         }
         private void SetStatus(bool statusLogin, string Ep_Code, int Role_Ep)
@@ -37,6 +44,7 @@ namespace _3_GUI_Layer
             _Ep_Code = Ep_Code;
             _RoleEmployee = Role_Ep;
             lblNameEp.Text = Ep_Code+"";
+            TPSM_Login.Visible = true;
         }
         private bool checkForm(string nameForm)
         {
@@ -108,6 +116,7 @@ namespace _3_GUI_Layer
             TPSM_Employee.Visible = true;
             lblNameEp.Text = "";
             MessageBox.Show("Đã đăng xuất ");
+            loadForm();
         }
 
         private void TSMI_Exit_Click(object sender, EventArgs e)

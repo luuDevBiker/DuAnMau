@@ -32,7 +32,9 @@ namespace _3_GUI_Layer
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sảnPhẩmNhậpKhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tònKhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -59,17 +61,31 @@ namespace _3_GUI_Layer
             this.tònKhoToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.tònKhoToolStripMenuItem.Text = "Tồn kho";
             // 
-            // FrmThongKe
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 99);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(800, 351);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // Frmstatistical
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "FrmThongKe";
+            this.Name = "Frmstatistical";
             this.Text = "FrmThongKe";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -80,5 +96,6 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem sảnPhẩmNhậpKhoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tònKhoToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

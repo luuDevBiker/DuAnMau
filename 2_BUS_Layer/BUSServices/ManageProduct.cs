@@ -47,7 +47,7 @@ namespace _2_BUS_Layer.BUSServices
             {
                 _lstViewPrds.ForEach(x =>
                 {
-                    if (x.Status)
+                    if (x.Status == true)
                     {
                         _iProductServices.Add(x.Products);
                         x.Status = false;

@@ -24,6 +24,8 @@ namespace _1_DAL_Layer.Entitys
         [Required]
         public int Prd_Quantity { get; set; }
         [Required]
+        public int Prd_STTQuantity { get; set; }
+        [Required]
         public int Prd_ImportPrice { get; set; }
         [Required]
         public int Prd_ExportPrice { get; set; }
