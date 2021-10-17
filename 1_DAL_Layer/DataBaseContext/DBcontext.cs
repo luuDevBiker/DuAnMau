@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using _1_DAL_Layer.Entities;
-using _1_DAL_Layer.Entitys;
 using Microsoft.EntityFrameworkCore;
 
 namespace _1_DAL_Layer.DataBaseContext

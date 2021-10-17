@@ -2,7 +2,7 @@
 using _2_BUS_Layer.Models;
 using _1_DAL_Layer.IDALServices;
 using _1_DAL_Layer.DALServices;
-using _1_DAL_Layer.Entitys;
+using _1_DAL_Layer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

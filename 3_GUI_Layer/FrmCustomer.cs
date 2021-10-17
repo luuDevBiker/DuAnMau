@@ -160,7 +160,7 @@ namespace _3_GUI_Layer
             if (index < 0) return;
             var row = dgvCustomer.Rows[index].Cells;
             txtName.Text = row[0].Value + "";
-            if(row[1].Value == "Nam")
+            if(row[1].Value.ToString() == "Nam")
             {
                 rdMale.Checked = true;
             }

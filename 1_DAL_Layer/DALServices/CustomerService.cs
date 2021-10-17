@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using _1_DAL_Layer.DataBaseContext;
-using _1_DAL_Layer.Entitys;
+using _1_DAL_Layer.Entities;
 using _1_DAL_Layer.IDALServices;
 
 namespace _1_DAL_Layer.DALServices

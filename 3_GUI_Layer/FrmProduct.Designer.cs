@@ -49,14 +49,17 @@ namespace _3_GUI_Layer
             this.txtExportPeice = new System.Windows.Forms.TextBox();
             this.txtImportPrice = new System.Windows.Forms.TextBox();
             this.lblGiaBan = new System.Windows.Forms.Label();
+            this.txtQuantityImport = new System.Windows.Forms.TextBox();
             this.txtPrQuanlity = new System.Windows.Forms.TextBox();
             this.lblGiaNhap = new System.Windows.Forms.Label();
             this.txtPrName = new System.Windows.Forms.TextBox();
+            this.lblQuantityImp = new System.Windows.Forms.Label();
             this.lblSoLuong = new System.Windows.Forms.Label();
             this.lblDiaChi = new System.Windows.Forms.Label();
             this.lblTenHang = new System.Windows.Forms.Label();
             this.lbFrmNhanVien = new System.Windows.Forms.Label();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.grButton.SuspendLayout();
             this.grbNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAnhHang)).BeginInit();
@@ -152,9 +155,11 @@ namespace _3_GUI_Layer
             this.grbNhanVien.Controls.Add(this.txtExportPeice);
             this.grbNhanVien.Controls.Add(this.txtImportPrice);
             this.grbNhanVien.Controls.Add(this.lblGiaBan);
+            this.grbNhanVien.Controls.Add(this.txtQuantityImport);
             this.grbNhanVien.Controls.Add(this.txtPrQuanlity);
             this.grbNhanVien.Controls.Add(this.lblGiaNhap);
             this.grbNhanVien.Controls.Add(this.txtPrName);
+            this.grbNhanVien.Controls.Add(this.lblQuantityImp);
             this.grbNhanVien.Controls.Add(this.lblSoLuong);
             this.grbNhanVien.Controls.Add(this.lblDiaChi);
             this.grbNhanVien.Controls.Add(this.lblTenHang);
@@ -209,10 +214,16 @@ namespace _3_GUI_Layer
             this.lblGiaBan.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lblGiaBan.Name = "lblGiaBan";
             // 
+            // txtQuantityImport
+            // 
+            resources.ApplyResources(this.txtQuantityImport, "txtQuantityImport");
+            this.txtQuantityImport.Name = "txtQuantityImport";
+            // 
             // txtPrQuanlity
             // 
             resources.ApplyResources(this.txtPrQuanlity, "txtPrQuanlity");
             this.txtPrQuanlity.Name = "txtPrQuanlity";
+            this.txtPrQuanlity.ReadOnly = true;
             // 
             // lblGiaNhap
             // 
@@ -225,6 +236,12 @@ namespace _3_GUI_Layer
             this.txtPrName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             resources.ApplyResources(this.txtPrName, "txtPrName");
             this.txtPrName.Name = "txtPrName";
+            // 
+            // lblQuantityImp
+            // 
+            resources.ApplyResources(this.lblQuantityImp, "lblQuantityImp");
+            this.lblQuantityImp.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblQuantityImp.Name = "lblQuantityImp";
             // 
             // lblSoLuong
             // 
@@ -262,6 +279,11 @@ namespace _3_GUI_Layer
             this.dgvProduct.ShowCellToolTips = false;
             this.dgvProduct.ShowEditingIcon = false;
             this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // FrmProduct
             // 
@@ -316,5 +338,8 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.Label lblGiaNhap;
         private System.Windows.Forms.Label lblSoLuong;
         private System.Windows.Forms.DataGridView dgvProduct;
+        private System.Windows.Forms.TextBox txtQuantityImport;
+        private System.Windows.Forms.Label lblQuantityImp;
+        private System.Windows.Forms.Label label1;
     }
 }

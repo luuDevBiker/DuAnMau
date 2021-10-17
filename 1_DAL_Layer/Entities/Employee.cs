@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-namespace _1_DAL_Layer.Entitys
+namespace _1_DAL_Layer.Entities
 {
 
     public class Employee

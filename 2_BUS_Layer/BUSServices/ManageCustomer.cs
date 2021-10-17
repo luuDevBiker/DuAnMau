@@ -1,6 +1,6 @@
 ﻿using _1_DAL_Layer.DALServices;
 using _1_DAL_Layer.IDALServices;
-using _1_DAL_Layer.Entitys;
+using _1_DAL_Layer.Entities;
 using _2_BUS_Layer.IBUSServices;
 using _2_BUS_Layer.Models;
 using System;

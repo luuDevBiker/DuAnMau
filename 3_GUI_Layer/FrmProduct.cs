@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using _2_BUS_Layer.Models;
 using _2_BUS_Layer.BUSServices;
 using _2_BUS_Layer.IBUSServices;
-using System.Text.RegularExpressions;
-using System.Collections;
 
 namespace _3_GUI_Layer
 {
@@ -28,6 +23,7 @@ namespace _3_GUI_Layer
         {
             InitializeComponent();
             _iManageProduct = new ManageProduct();
+            ClearForm();
         }
         #region Tiện ích form
         public void getEpCode(string Ep_code)
@@ -80,7 +76,39 @@ namespace _3_GUI_Layer
         }
         private bool checkForm()
         {
-            return false;
+            bool status = true;
+            void checkLength(TextBox txt)
+            {
+                if (txt.Text.Length == 0)
+                {
+                    MessageBox.Show("Không được để trống thông tin !");
+                    txt.Text = "";
+                    status = false;
+                    txt.Focus();
+                }
+            }
+            void checkNum(TextBox txt)
+            {
+                try
+                {
+                    Convert.ToInt32(txt.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Sai định dạng");
+                    txt.Text = "";
+                    status = false;
+                    txt.Focus();
+                }
+            }
+            checkLength(txtExportPeice);
+            checkLength(txtImportPrice);
+            checkLength(txtPrName);
+            checkLength(txtQuantityImport);
+            checkNum(txtExportPeice);
+            checkNum(txtImportPrice);
+            checkNum(txtQuantityImport);
+            return status;
         }
         public string GetPathImage()
         {
@@ -117,11 +145,10 @@ namespace _3_GUI_Layer
             product.Prd_Id = _iManageProduct.GetMaxID() + 1;
             product.Prd_Code = "MH" + product.Prd_Id;
             product.Prd_Name = txtPrName.Text;
-            product.Prd_Quantity = Convert.ToInt32(txtPrQuanlity.Text);
+            product.Prd_Quantity = Convert.ToInt32(txtPrQuanlity.Text) + Convert.ToInt32(txtQuantityImport.Text);
             product.Prd_ImportPrice = Convert.ToInt32(txtImportPrice.Text);
             product.Prd_ExportPrice = Convert.ToInt32(txtExportPeice.Text);
             product.Prd_Image = _arrImg;
-            product.Img_Barcode = _arrImg;
             product.Prd_Note = rtbAddress.Text;
             product.Ep_Code = _MaNhanVien;
             View.Employee = _iManageProduct.GetEmployee(_MaNhanVien);
@@ -163,19 +190,25 @@ namespace _3_GUI_Layer
         {
             txtPrName.Text = "";
             txtPrQuanlity.Text = "";
+            txtQuantityImport.Text = "0";
             txtImportPrice.Text = "";
             txtExportPeice.Text = "";
-            rtbAddress.Text = "";
+            rtbAddress.Text = " ";
             txtPrCode.Text = "";
             _Pr_Code = "";
             _arrImg = null;
             btnAdd.Enabled = true;
         }
-
+        private void btnOpenImg_Click(object sender, EventArgs e)
+        {
+            string path = GetPathImage();
+            _arrImg = CopyImageToByteArray(path);
+            pcbAnhHang.Image = Image.FromFile(path);
+        }
         #endregion
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (checkForm()) return;
+            if (checkForm() ==  false) return;
             if (_iManageProduct.CheckNamePrd(txtPrName.Text))
             {
                 MessageBox.Show("Tên Hàng đã tồn tại");
@@ -186,19 +219,10 @@ namespace _3_GUI_Layer
             LoadData(_iManageProduct.GetlstView_Prd());
             ClearForm();
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             MessageBox.Show(_iManageProduct.Save());
         }
-
-        private void btnOpenImg_Click(object sender, EventArgs e)
-        {
-            string path = GetPathImage();
-            _arrImg = CopyImageToByteArray(path);
-            pcbAnhHang.Image = Image.FromFile(path);
-        }
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (checkForm()) return;
@@ -209,7 +233,6 @@ namespace _3_GUI_Layer
             LoadData(_iManageProduct.GetlstView_Prd());
             ClearForm();
         }
-
         private void btnRemove_Click(object sender, EventArgs e)
         {
             var View_Pr_Delete = View_Pr();
@@ -218,7 +241,6 @@ namespace _3_GUI_Layer
             _iManageProduct.Delete(View_Pr_Delete);
             ClearForm();
         }
-
         private void btnFind_Click(object sender, EventArgs e)
         {
             var lstHang = _iManageProduct.GetlstView_Prd()
@@ -226,17 +248,14 @@ namespace _3_GUI_Layer
                 .StartsWith(txtFind.Text) || x.Products.Prd_Code.StartsWith(txtFind.Text)).ToList();
             LoadData(lstHang);
         }
-
         private void btnSkip_Click(object sender, EventArgs e)
         {
             ClearForm();
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void btnList_Click(object sender, EventArgs e)
         {
             LoadData(_iManageProduct.GetlstView_Prd());

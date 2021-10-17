@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using _1_DAL_Layer.Entities;
 
-namespace _1_DAL_Layer.Entitys
+namespace _1_DAL_Layer.Entities
 {
     public class Products
     {
@@ -20,11 +20,7 @@ namespace _1_DAL_Layer.Entitys
         [Required]
         public string Prd_Name { get; set; }
         [Required]
-        public byte[] Img_Barcode { get; set; }
-        [Required]
         public int Prd_Quantity { get; set; }
-        [Required]
-        public int Prd_STTQuantity { get; set; }
         [Required]
         public int Prd_ImportPrice { get; set; }
         [Required]

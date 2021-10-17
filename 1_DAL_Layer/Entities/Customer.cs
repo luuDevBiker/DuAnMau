@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using _1_DAL_Layer.Entities;
 
-namespace _1_DAL_Layer.Entitys
+namespace _1_DAL_Layer.Entities
 {
     public class Customer
     {
