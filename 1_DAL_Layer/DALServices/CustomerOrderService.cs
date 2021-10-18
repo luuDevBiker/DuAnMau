@@ -6,21 +6,22 @@ using System.Threading.Tasks;
 using _1_DAL_Layer.DataBaseContext;
 using _1_DAL_Layer.Entities;
 using _1_DAL_Layer.IDALServices;
+
 namespace _1_DAL_Layer.DALServices
 {
-    public class CustomerOrderDetails : ICustomerOrderDetails
+    public class CustomerOrderService : ICustomerOrderService
     {
         private DBcontext _DBcontext;
-        public CustomerOrderDetails()
+
+        public CustomerOrderService()
         {
             _DBcontext = new DBcontext();
         }
-
-        public string Add(Customer_Order_Details customer_Order_Details)
+        public string Add(Customer_Order customer_Order)
         {
             try
             {
-                _DBcontext.Customer_Order_Details.Add(customer_Order_Details);
+                _DBcontext.Customer_Orders.Add(customer_Order);
                 return "Successful";
             }
             catch (Exception e)
@@ -29,11 +30,11 @@ namespace _1_DAL_Layer.DALServices
             }
         }
 
-        public string Delete(Customer_Order_Details customer_Order_Details)
+        public string Delete(Customer_Order customer_Order)
         {
             try
             {
-                _DBcontext.Customer_Order_Details.Remove(customer_Order_Details);
+                _DBcontext.Customer_Orders.Remove(customer_Order);
                 return "Successful";
             }
             catch (Exception e)
@@ -42,15 +43,15 @@ namespace _1_DAL_Layer.DALServices
             }
         }
 
-        public List<Customer_Order_Details> Getlst()
+        public List<Customer_Order> Getlst()
         {
             try
             {
-                return _DBcontext.Customer_Order_Details.ToList();
+                return _DBcontext.Customer_Orders.ToList();
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return null;
+                throw;
             }
         }
 
@@ -67,11 +68,11 @@ namespace _1_DAL_Layer.DALServices
             }
         }
 
-        public string Update(Customer_Order_Details customer_Order_Details)
+        public string Update(Customer_Order customer_Order)
         {
             try
             {
-                _DBcontext.Customer_Order_Details.Update(customer_Order_Details);
+                _DBcontext.Customer_Orders.Update(customer_Order);
                 return "Successful";
             }
             catch (Exception e)

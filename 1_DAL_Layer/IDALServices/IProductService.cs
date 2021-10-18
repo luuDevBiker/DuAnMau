@@ -9,7 +9,7 @@ using _1_DAL_Layer.Entities;
 
 namespace _1_DAL_Layer.IDALServices
 {
-    public interface IProductServices
+    public interface IProductService
     {
         public string Add(Products Products);
         public string Update(Products Products);

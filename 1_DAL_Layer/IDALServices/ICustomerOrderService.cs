@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _1_DAL_Layer.IDALServices
 {
-    public interface ICustomerOrder
+    public interface ICustomerOrderService
     {
         public string Add(Customer_Order customer_Order);
         public string Update(Customer_Order customer_Order);

@@ -10,7 +10,7 @@ using _1_DAL_Layer.DataBaseContext;
 
 namespace _1_DAL_Layer.DALServices
 {
-    public class ProductService : IProductServices
+    public class ProductService : IProductService
     {
         private DBcontext _DBcontext = new DBcontext();
         public string Add(Products Products)

@@ -15,6 +15,8 @@ namespace _1_DAL_Layer.Entities
         [StringLength(20)]
         public string CO_Code { get; set; }
         [Required]
+        public int Id { get; set; }
+        [Required]
         public DateTime Date { get; set; }
         [Required]
         public int Total_Money { get; set; }

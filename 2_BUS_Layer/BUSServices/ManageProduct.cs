@@ -13,7 +13,7 @@ namespace _2_BUS_Layer.BUSServices
 {
     public class ManageProduct : IManageProduct
     {
-        private IProductServices _iProductServices;
+        private IProductService _iProductServices;
         private IEmployeeService _iEmployeeService;
         private List<Employee> _lstEps;
         private List<Products> _lstPrds;
