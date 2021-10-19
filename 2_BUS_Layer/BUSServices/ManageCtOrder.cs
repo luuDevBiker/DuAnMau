@@ -15,24 +15,26 @@ namespace _2_BUS_Layer.BUSServices
     {
         private ICustomerOrderService _iCustomerOrder;
         private ICustomerService _iCustomer;
-        private List<CustomerOrderService> _lstCtOerder;
         private List<ViewCustomerOrder> _viewCustomerOrders;
         public ManageCtOrder()
         {
             _iCustomerOrder = new CustomerOrderService();
             _iCustomer = new CustomerService();
-            _lstCtOerder = new List<CustomerOrderService>();
             _viewCustomerOrders = new List<ViewCustomerOrder>();
-
-    }
-    public string Add(Customer_Order customerOrder)
-        {
-            return _iCustomerOrder.Add(customerOrder);
+            loadData();
         }
-
-        public string Delete(Customer_Order customerOrder)
+        public Customer_Order Add(string Phone, int Pay)
         {
-            return _iCustomerOrder.Delete(customerOrder);
+            var CtOd = new Customer_Order();
+            CtOd.Date = DateTime.Now;
+            CtOd.Id = GetMaxId() + 1;
+            CtOd.Total_Money = Pay;
+            CtOd.CO_Code = "HD" + CtOd.Id;
+            CtOd.Ep_Code = "NV1001";
+            CtOd.Ct_Code = Phone;
+            _iCustomerOrder.Add(CtOd);
+            _iCustomerOrder.Save();
+            return CtOd;
         }
 
         public ViewCustomerOrder GetCtOrder(string Code)
@@ -70,7 +72,7 @@ namespace _2_BUS_Layer.BUSServices
                           };
             lstView.ToList().ForEach(x =>
             {
-                var item = new ViewCustomerOrder(x.Customer,x.CustomerOrder,x.Status);
+                var item = new ViewCustomerOrder(x.Customer, x.CustomerOrder, x.Status);
                 _viewCustomerOrders.Add(item);
             });
         }

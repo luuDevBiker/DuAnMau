@@ -42,6 +42,11 @@ namespace _2_BUS_Layer.BUSServices
             return _lstView;
         }
 
+        public string Save()
+        {
+            return _iCustomerOdDetailService.Save();
+        }
+
         public string Update(Customer_Order_Details order_Details)
         {
             return _iCustomerOdDetailService.Update(order_Details);

@@ -38,6 +38,7 @@ namespace _3_GUI_Layer
             this.TPSM_Product = new System.Windows.Forms.ToolStripMenuItem();
             this.TPSM_Employee = new System.Windows.Forms.ToolStripMenuItem();
             this.TPSM_Customer = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSML_SellPr = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TPSM_Statistical = new System.Windows.Forms.ToolStripMenuItem();
             this.hướngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,28 +64,28 @@ namespace _3_GUI_Layer
             // TPSM_Login
             // 
             this.TPSM_Login.Name = "TPSM_Login";
-            this.TPSM_Login.Size = new System.Drawing.Size(224, 26);
+            this.TPSM_Login.Size = new System.Drawing.Size(198, 26);
             this.TPSM_Login.Text = "Đăng nhập";
             this.TPSM_Login.Click += new System.EventHandler(this.TPSM_Login_Click);
             // 
             // TSMI_Logout
             // 
             this.TSMI_Logout.Name = "TSMI_Logout";
-            this.TSMI_Logout.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_Logout.Size = new System.Drawing.Size(198, 26);
             this.TSMI_Logout.Text = "Đăng xuất";
             this.TSMI_Logout.Click += new System.EventHandler(this.TSMI_Logout_Click);
             // 
             // TSMI_InforEp
             // 
             this.TSMI_InforEp.Name = "TSMI_InforEp";
-            this.TSMI_InforEp.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_InforEp.Size = new System.Drawing.Size(198, 26);
             this.TSMI_InforEp.Text = "Hồ sơ nhân viên";
             this.TSMI_InforEp.Click += new System.EventHandler(this.TSMI_InforEp_Click);
             // 
             // TSMI_Exit
             // 
             this.TSMI_Exit.Name = "TSMI_Exit";
-            this.TSMI_Exit.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_Exit.Size = new System.Drawing.Size(198, 26);
             this.TSMI_Exit.Text = "Thoát";
             this.TSMI_Exit.Click += new System.EventHandler(this.TSMI_Exit_Click);
             // 
@@ -94,7 +95,8 @@ namespace _3_GUI_Layer
             this.danhMụcToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TPSM_Product,
             this.TPSM_Employee,
-            this.TPSM_Customer});
+            this.TPSM_Customer,
+            this.TSML_SellPr});
             this.danhMụcToolStripMenuItem.Name = "danhMụcToolStripMenuItem";
             this.danhMụcToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.danhMụcToolStripMenuItem.Text = "Danh Mục";
@@ -102,23 +104,30 @@ namespace _3_GUI_Layer
             // TPSM_Product
             // 
             this.TPSM_Product.Name = "TPSM_Product";
-            this.TPSM_Product.Size = new System.Drawing.Size(172, 26);
+            this.TPSM_Product.Size = new System.Drawing.Size(224, 26);
             this.TPSM_Product.Text = "Sản Phẩm";
             this.TPSM_Product.Click += new System.EventHandler(this.TPSM_Product_Click);
             // 
             // TPSM_Employee
             // 
             this.TPSM_Employee.Name = "TPSM_Employee";
-            this.TPSM_Employee.Size = new System.Drawing.Size(172, 26);
+            this.TPSM_Employee.Size = new System.Drawing.Size(224, 26);
             this.TPSM_Employee.Text = "Nhân Viên";
             this.TPSM_Employee.Click += new System.EventHandler(this.TPSM_Employee_Click);
             // 
             // TPSM_Customer
             // 
             this.TPSM_Customer.Name = "TPSM_Customer";
-            this.TPSM_Customer.Size = new System.Drawing.Size(172, 26);
+            this.TPSM_Customer.Size = new System.Drawing.Size(224, 26);
             this.TPSM_Customer.Text = "Khách Hàng";
             this.TPSM_Customer.Click += new System.EventHandler(this.TPSM_Customer_Click);
+            // 
+            // TSML_SellPr
+            // 
+            this.TSML_SellPr.Name = "TSML_SellPr";
+            this.TSML_SellPr.Size = new System.Drawing.Size(224, 26);
+            this.TSML_SellPr.Text = "Bán hàng";
+            this.TSML_SellPr.Click += new System.EventHandler(this.TSML_SellPr_Click);
             // 
             // thốngKêToolStripMenuItem
             // 
@@ -226,5 +235,6 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.ToolStripMenuItem TPSM_Introduce;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.Label lblNameEp;
+        private System.Windows.Forms.ToolStripMenuItem TSML_SellPr;
     }
 }

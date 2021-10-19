@@ -16,10 +16,13 @@ namespace _3_GUI_Layer
     public partial class Frmstatistical : Form
     {
 
-        private IManageProduct _iManageProduct = new ManageProduct();
+        private IManageProduct _iManageProduct;
+        private IManageCtOdDetail _iManageCtOdDetail;
         public Frmstatistical()
         {
             InitializeComponent();
+            _iManageProduct = new ManageProduct();
+            _iManageCtOdDetail = new ManageCtOdDetail();
         }
         private void LoadData(List<ViewProduct> lstView)
         {

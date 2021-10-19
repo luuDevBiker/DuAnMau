@@ -11,11 +11,9 @@ namespace _2_BUS_Layer.IBUSServices
 {
     public interface IManageCtOrder
     {
-        public string Add(Customer_Order customerOrder);
+        public Customer_Order Add(string Phone , int Pay);
         public string Update(Customer_Order customerOrder);
-        public string Delete(Customer_Order customerOrder);
         public List<ViewCustomerOrder> Getlst_View();
         public ViewCustomerOrder GetCtOrder(string Code);
-        public int GetMaxId();
     }
 }

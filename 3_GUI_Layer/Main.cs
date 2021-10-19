@@ -168,5 +168,19 @@ namespace _3_GUI_Layer
         {
 
         }
+
+        private void TSML_SellPr_Click(object sender, EventArgs e)
+        {
+            if (checkForm("frmNhanVien") == true) return;
+            if (_StatusLogin == false)
+            {
+                MessageBox.Show("hãy đăng nhập để sử dụng");
+                return;
+            }
+            FrmSellProduct frmSellProduct = new FrmSellProduct();
+            frmSellProduct.getpCode(_Ep_Code);
+            frmSellProduct.Parent = this;
+            frmSellProduct.Show();
+        }
     }
 }

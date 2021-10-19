@@ -23,6 +23,9 @@ namespace _1_DAL_Layer.Entities
         [ForeignKey("Employee")]
         [StringLength(20)]
         public string Ep_Code { get; set; }
-        public Employee Employee { get; set; }
+        [ForeignKey("Customer")]
+        [StringLength(20)]
+        public string Ct_Code { get; set; }
+        public Customer Customer { get; set; }
     }
 }

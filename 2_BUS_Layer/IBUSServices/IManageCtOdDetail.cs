@@ -14,6 +14,7 @@ namespace _2_BUS_Layer.IBUSServices
         public string Add(Customer_Order_Details order_Details);
         public string Update(Customer_Order_Details order_Details);
         public string Delete(Customer_Order_Details order_Details);
+        public string Save();
         public List<ViewCustomerOrderDetail> Getlst_View();
         public ViewCustomerOrderDetail GetCtOdDetail(string Code);
     }

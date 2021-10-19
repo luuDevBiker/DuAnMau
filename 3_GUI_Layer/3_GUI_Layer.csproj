@@ -10,6 +10,7 @@
   <ItemGroup>
     <Folder Include="Publics\img\" />
     <Folder Include="Publics\Icon\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -35,8 +35,8 @@ namespace _3_GUI_Layer
             this.TSMI_MaxPrd = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_MinPrd = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_Inventory = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgv_Statistical = new System.Windows.Forms.DataGridView();
             this.sảnPhẩmBánÍtNhấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgv_Statistical = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Statistical)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +92,12 @@ namespace _3_GUI_Layer
             this.TSMI_Inventory.Size = new System.Drawing.Size(76, 24);
             this.TSMI_Inventory.Text = "Tồn kho";
             // 
+            // sảnPhẩmBánÍtNhấtToolStripMenuItem
+            // 
+            this.sảnPhẩmBánÍtNhấtToolStripMenuItem.Name = "sảnPhẩmBánÍtNhấtToolStripMenuItem";
+            this.sảnPhẩmBánÍtNhấtToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.sảnPhẩmBánÍtNhấtToolStripMenuItem.Text = "Sản phẩm bán ít nhất";
+            // 
             // dgv_Statistical
             // 
             this.dgv_Statistical.AllowDrop = true;
@@ -110,12 +116,6 @@ namespace _3_GUI_Layer
             this.dgv_Statistical.RowTemplate.Height = 29;
             this.dgv_Statistical.Size = new System.Drawing.Size(1383, 414);
             this.dgv_Statistical.TabIndex = 1;
-            // 
-            // sảnPhẩmBánÍtNhấtToolStripMenuItem
-            // 
-            this.sảnPhẩmBánÍtNhấtToolStripMenuItem.Name = "sảnPhẩmBánÍtNhấtToolStripMenuItem";
-            this.sảnPhẩmBánÍtNhấtToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.sảnPhẩmBánÍtNhấtToolStripMenuItem.Text = "Sản phẩm bán ít nhất";
             // 
             // Frmstatistical
             // 
