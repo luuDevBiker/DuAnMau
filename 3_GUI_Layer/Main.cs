@@ -76,7 +76,7 @@ namespace _3_GUI_Layer
         {
             try
             {
-                if (checkForm("frmSanPham") == true) return;
+                if (checkForm("frmProduct") == true) return;
                 if (_StatusLogin == false)
                 {
                     MessageBox.Show("hãy đăng nhập để sử dụng");
@@ -96,7 +96,7 @@ namespace _3_GUI_Layer
 
         private void TPSM_Employee_Click(object sender, EventArgs e)
         {
-            if (checkForm("frmNhanVien") == true) return;
+            if (checkForm("frmEmployee") == true) return;
             if (_StatusLogin == false)
             {
                 MessageBox.Show("hãy đăng nhập để sử dụng");
@@ -132,6 +132,7 @@ namespace _3_GUI_Layer
                 MessageBox.Show("hãy đăng nhập để sử dụng");
                 return;
             }
+
         }
 
         private void TPSM_Customer_Click(object sender, EventArgs e)
@@ -150,13 +151,15 @@ namespace _3_GUI_Layer
 
         private void TPSM_Statistical_Click(object sender, EventArgs e)
         {
-            if (checkForm("frmNhanVien") == true) return;
+            if (checkForm("frmstatistical") == true) return;
             if (_StatusLogin == false)
             {
                 MessageBox.Show("hãy đăng nhập để sử dụng");
                 return;
             }
-
+            Frmstatistical frmstatistical = new Frmstatistical();
+            frmstatistical.MdiParent = this;
+            frmstatistical.Show();
         }
 
         private void TPSM_Instructions_Click(object sender, EventArgs e)
@@ -179,7 +182,7 @@ namespace _3_GUI_Layer
             }
             FrmSellProduct frmSellProduct = new FrmSellProduct();
             frmSellProduct.getpCode(_Ep_Code);
-            frmSellProduct.Parent = this;
+            frmSellProduct.MdiParent = this;
             frmSellProduct.Show();
         }
     }

@@ -98,8 +98,7 @@ namespace _3_GUI_Layer
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            var Pr = ViewAdd();
-            Pr.Customer.Ct_PhoneNumber = _Ct_Phone_Click;
+            var Pr = _iManageCustomer.GetViewCustomer(_Ct_Phone_Click);
             _iManageCustomer.Delete(Pr);
             LoadData(_iManageCustomer.GetlstView_Ct());
             ClearForm();
@@ -109,11 +108,9 @@ namespace _3_GUI_Layer
         {
             if (CheckForm() == false) return;
             var view = _iManageCustomer.GetViewCustomer(_Ct_Phone_Click);
-            var customer = view.Customer;
-            customer.Ct_PhoneNumber = txtPhoneNumber.Text;
-            customer.Ct_Name = txtName.Text;
-            customer.Ct_Address = txtAddress.Text;
-            customer.Ct_Sex = rdMale.Checked == true ? 0 : 1;
+            view.Customer.Ct_Name = txtName.Text;
+            view.Customer.Ct_Address = txtAddress.Text;
+            view.Customer.Ct_Sex = rdMale.Checked == true ? 0 : 1;
             _iManageCustomer.Update(view);
             LoadData(_iManageCustomer.GetlstView_Ct());
             ClearForm();

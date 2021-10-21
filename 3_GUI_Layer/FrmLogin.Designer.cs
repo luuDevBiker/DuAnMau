@@ -84,6 +84,7 @@ namespace _3_GUI_Layer
             this.txtTK.Name = "txtTK";
             this.txtTK.Size = new System.Drawing.Size(264, 27);
             this.txtTK.TabIndex = 1;
+            this.txtTK.Text = "luubiker@gmail.com";
             // 
             // txtMk
             // 
@@ -92,6 +93,7 @@ namespace _3_GUI_Layer
             this.txtMk.PasswordChar = 'x';
             this.txtMk.Size = new System.Drawing.Size(264, 27);
             this.txtMk.TabIndex = 2;
+            this.txtMk.Text = "123";
             // 
             // btnLogin
             // 
@@ -177,6 +179,7 @@ namespace _3_GUI_Layer
             this.Controls.Add(this.lblLogin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Log in";
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogin)).EndInit();
             this.ResumeLayout(false);

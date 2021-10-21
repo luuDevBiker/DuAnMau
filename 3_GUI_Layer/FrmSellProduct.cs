@@ -222,11 +222,12 @@ namespace _3_GUI_Layer
 
         private void dgvLstPtd_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             var lst = _lstPrd;
             var ind = e.ColumnIndex;
             var row = dgvLstPtd.Rows[e.RowIndex];
             var Code = row.Cells[4].Value.ToString();
-            if (ind == 5)
+            if (ind == 6)
             {
                 var i = _lstPrdBuy.FindIndex(x => x.Products.Prd_Code == Code);
                 if (i >= 0)
@@ -245,6 +246,7 @@ namespace _3_GUI_Layer
         {
             try
             {
+                
                 var row = dgvCtBuy.Rows[_indexRow];
                 var Code = row.Cells[0].Value.ToString();
                 var i = _lstPrdBuy.FindIndex(x => x.Products.Prd_Code == Code);

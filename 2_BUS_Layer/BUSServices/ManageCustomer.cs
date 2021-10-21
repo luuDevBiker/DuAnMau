@@ -40,9 +40,10 @@ namespace _2_BUS_Layer.BUSServices
         {
             try
             {
-                _lstViewCts.Remove(View_Ct);
+                var i = _lstViewCts.FindIndex(x => x.Customer.Ct_PhoneNumber == View_Ct.Customer.Ct_PhoneNumber);
+                _lstViewCts.RemoveAt(i);
                 _StatusDataSave = true;
-                return _iCustomerService.Update(View_Ct.Customer);
+                return _iCustomerService.Delete(View_Ct.Customer);
             }
             catch (Exception e)
             {
@@ -57,10 +58,10 @@ namespace _2_BUS_Layer.BUSServices
                 var index = _lstViewCts.FindIndex(x => x.Employee.Ep_Code == View_Ct.Employee.Ep_Code);
                 _lstViewCts[index] = View_Ct;
                 _StatusDataSave = true;
-                return _iCustomerService.Delete(View_Ct.Customer);
+                return _iCustomerService.Update(View_Ct.Customer);
             }
             _StatusDataSave = true;
-            return _iCustomerService.Delete(View_Ct.Customer);
+            return _iCustomerService.Update(View_Ct.Customer);
         }
         public string Save()
         {
@@ -71,7 +72,7 @@ namespace _2_BUS_Layer.BUSServices
                     _iCustomerService.Add(x.Customer);
                 }
             });
-            _StatusDataSave = false;
+            _StatusDataSave = false;  
             return _iCustomerService.Save();
         }
         public bool CheckNumberPhone(string NumberPhone)

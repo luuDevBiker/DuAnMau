@@ -54,14 +54,14 @@ namespace _3_GUI_Layer
             this.dgvLstPtd.AllowUserToAddRows = false;
             this.dgvLstPtd.AllowUserToDeleteRows = false;
             this.dgvLstPtd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvLstPtd.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvLstPtd.ColumnHeadersHeight = 20;
-            this.dgvLstPtd.Location = new System.Drawing.Point(0, 474);
+            this.dgvLstPtd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLstPtd.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvLstPtd.Location = new System.Drawing.Point(0, 481);
             this.dgvLstPtd.MultiSelect = false;
             this.dgvLstPtd.Name = "dgvLstPtd";
             this.dgvLstPtd.RowHeadersWidth = 51;
             this.dgvLstPtd.RowTemplate.Height = 29;
-            this.dgvLstPtd.Size = new System.Drawing.Size(1329, 273);
+            this.dgvLstPtd.Size = new System.Drawing.Size(1335, 353);
             this.dgvLstPtd.TabIndex = 0;
             this.dgvLstPtd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLstPtd_CellClick);
             // 
@@ -208,14 +208,17 @@ namespace _3_GUI_Layer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1335, 749);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(1335, 834);
             this.Controls.Add(this.GrbSell);
             this.Controls.Add(this.dgvLstPtd);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmSellProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Bán hàng";
             ((System.ComponentModel.ISupportInitialize)(this.dgvLstPtd)).EndInit();
             this.GrbSell.ResumeLayout(false);

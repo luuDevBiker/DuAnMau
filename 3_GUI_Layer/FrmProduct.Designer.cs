@@ -289,7 +289,6 @@ namespace _3_GUI_Layer
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ControlBox = false;
             this.Controls.Add(this.dgvProduct);
             this.Controls.Add(this.grbNhanVien);
             this.Controls.Add(this.grButton);

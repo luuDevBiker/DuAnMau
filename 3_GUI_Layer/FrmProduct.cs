@@ -29,23 +29,10 @@ namespace _3_GUI_Layer
         public void getEpCode(string Ep_code)
         {
             _MaNhanVien = Ep_code;
-            MessageBox.Show(Ep_code + " " + _MaNhanVien);
         }
         private void LoadData(List<ViewProduct> lstHang)
         {
             dgvProduct.ColumnCount = 8;
-            DataGridViewComboBoxColumn dgvCmb = new DataGridViewComboBoxColumn();
-            dgvCmb.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
-            
-            dgvCmb.HeaderText = "Name";
-            dgvCmb.Items.Add("Ghanashyam");
-            dgvCmb.Items.Add("Jignesh");
-            dgvCmb.Items.Add("Ishver");
-            dgvCmb.Items.Add("Anand");
-            dgvCmb.Name = "cmbName";
-            dgvCmb.DropDownWidth = 
-            dgvProduct.Columns.Add(dgvCmb);
-
             dgvProduct.Columns[0].Name = "Tên Sản Phẩm";
             dgvProduct.Columns[1].Name = "Số Lượng";
             dgvProduct.Columns[2].Name = "Giá Nhập";
@@ -57,8 +44,6 @@ namespace _3_GUI_Layer
             dgvProduct.Columns[7].Name = "Ảnh";
             dgvProduct.Columns[7].Visible = false;
 
-
-
             dgvProduct.Rows.Clear();
             foreach (var x in lstHang)
             {
@@ -69,7 +54,7 @@ namespace _3_GUI_Layer
                     item.Prd_ImportPrice,
                     item.Prd_ExportPrice,
                     item.Prd_Note,
-                    item.Ep_Code,
+                    item.Prd_Code,
                     x.Employee.Ep_Name,
                     item.Prd_Image);
             }
@@ -140,12 +125,21 @@ namespace _3_GUI_Layer
         }
         private ViewProduct View_Pr()
         {
+            var quantity = 0;
+            try
+            {
+                quantity = Convert.ToInt32(txtPrQuanlity.Text) + Convert.ToInt32(txtQuantityImport.Text);
+            }
+            catch
+            {
+                quantity = Convert.ToInt32(txtQuantityImport.Text);
+            }
             ViewProduct View = new ViewProduct();
             var product = View.Products;
             product.Prd_Id = _iManageProduct.GetMaxID() + 1;
             product.Prd_Code = "MH" + product.Prd_Id;
             product.Prd_Name = txtPrName.Text;
-            product.Prd_Quantity = Convert.ToInt32(txtPrQuanlity.Text) + Convert.ToInt32(txtQuantityImport.Text);
+            product.Prd_Quantity = quantity;
             product.Prd_ImportPrice = Convert.ToInt32(txtImportPrice.Text);
             product.Prd_ExportPrice = Convert.ToInt32(txtExportPeice.Text);
             product.Prd_Image = _arrImg;
@@ -182,7 +176,7 @@ namespace _3_GUI_Layer
             txtPrCode.Text = row.Cells[5].Value + "";
             _Pr_Code = row.Cells[5].Value + "";
             pcbAnhHang.Image = byteArrayToImage((byte[])row.Cells[7].Value);
-
+            _arrImg = (byte[])row.Cells[7].Value;
             // Enabled button
             btnAdd.Enabled = false;
         }
@@ -225,20 +219,33 @@ namespace _3_GUI_Layer
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (checkForm()) return;
-            var View_Pr_Update = View_Pr();
-            View_Pr_Update.Products.Prd_Code = _Pr_Code;
-            View_Pr_Update.Products.Prd_Id = _Pr_Id;
-            _iManageProduct.Update(View_Pr_Update);
+            var quantity = 0;
+            try
+            {
+                quantity = Convert.ToInt32(txtPrQuanlity.Text) + Convert.ToInt32(txtQuantityImport.Text);
+            }
+            catch
+            {
+                quantity = Convert.ToInt32(txtQuantityImport.Text);
+            }
+            if (checkForm() == false) return;
+            var product = _iManageProduct.SelectViewProduct(_Pr_Code);
+            product.Products.Prd_Name = txtPrName.Text;
+            product.Products.Prd_Quantity = quantity;
+            product.Products.Prd_ImportPrice = Convert.ToInt32(txtImportPrice.Text);
+            product.Products.Prd_ExportPrice = Convert.ToInt32(txtExportPeice.Text);
+            product.Products.Prd_Image = _arrImg;
+            product.Products.Prd_Note = rtbAddress.Text;
+            product.Products.Ep_Code = _MaNhanVien;
+            _iManageProduct.Update(product);
             LoadData(_iManageProduct.GetlstView_Prd());
             ClearForm();
         }
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            var View_Pr_Delete = View_Pr();
-            View_Pr_Delete.Products.Ep_Code = _Pr_Code;
-            View_Pr_Delete.Products.Prd_Id = _Pr_Id;
+            var View_Pr_Delete = _iManageProduct.SelectViewProduct(_Pr_Code);
             _iManageProduct.Delete(View_Pr_Delete);
+            LoadData(_iManageProduct.GetlstView_Prd());
             ClearForm();
         }
         private void btnFind_Click(object sender, EventArgs e)

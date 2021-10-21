@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ZXing.Net.Core" Version="0.2.7" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\1_DAL_Layer\1_DAL_Layer.csproj" />
   </ItemGroup>
 

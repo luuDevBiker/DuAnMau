@@ -100,6 +100,7 @@ namespace _3_GUI_Layer
             this.Controls.Add(this.lblBackPass);
             this.ForeColor = System.Drawing.SystemColors.Highlight;
             this.Name = "FrmBackPass";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBackPass";
             ((System.ComponentModel.ISupportInitialize)(this.pbBackPass)).EndInit();
             this.ResumeLayout(false);

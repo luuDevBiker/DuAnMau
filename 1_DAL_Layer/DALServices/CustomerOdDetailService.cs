@@ -48,7 +48,7 @@ namespace _1_DAL_Layer.DALServices
             {
                 return _DBcontext.Customer_Order_Details.ToList();
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }

@@ -66,7 +66,8 @@ namespace _2_BUS_Layer.BUSServices
         {
             try
             {
-                _lstViewPrds.Remove(Prd);
+                var i = _lstViewPrds.FindIndex(x => x.Products.Prd_Code == Prd.Products.Prd_Code);
+                _lstViewPrds.RemoveAt(i);
                 return _iProductServices.Delete(Prd.Products);
             }
             catch (Exception e)
@@ -78,7 +79,8 @@ namespace _2_BUS_Layer.BUSServices
 
         public List<ViewProduct> GetlstView_Prd()
         {
-            return _lstViewPrds;
+            var a = _lstViewPrds;
+            return a;
         }
 
         public int GetMaxID()
@@ -114,7 +116,7 @@ namespace _2_BUS_Layer.BUSServices
         {
             try
             {
-                var index = _lstViewPrds.FindIndex(x => x.Products.Ep_Code == Prd.Products.Ep_Code);
+                var index = _lstViewPrds.FindIndex(x => x.Products.Prd_Code == Prd.Products.Prd_Code);
                 _lstViewPrds[index] = Prd;
                 return _iProductServices.Update(Prd.Products);
             }

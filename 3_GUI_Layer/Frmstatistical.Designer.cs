@@ -35,8 +35,9 @@ namespace _3_GUI_Layer
             this.TSMI_MaxPrd = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_MinPrd = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_Inventory = new System.Windows.Forms.ToolStripMenuItem();
-            this.sảnPhẩmBánÍtNhấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_PrdSellMin = new System.Windows.Forms.ToolStripMenuItem();
             this.dgv_Statistical = new System.Windows.Forms.DataGridView();
+            this.TSMI_PrSellMax = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Statistical)).BeginInit();
             this.SuspendLayout();
@@ -87,16 +88,18 @@ namespace _3_GUI_Layer
             // TSMI_Inventory
             // 
             this.TSMI_Inventory.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sảnPhẩmBánÍtNhấtToolStripMenuItem});
+            this.TSMI_PrdSellMin,
+            this.TSMI_PrSellMax});
             this.TSMI_Inventory.Name = "TSMI_Inventory";
             this.TSMI_Inventory.Size = new System.Drawing.Size(76, 24);
             this.TSMI_Inventory.Text = "Tồn kho";
             // 
-            // sảnPhẩmBánÍtNhấtToolStripMenuItem
+            // TSMI_PrdSellMin
             // 
-            this.sảnPhẩmBánÍtNhấtToolStripMenuItem.Name = "sảnPhẩmBánÍtNhấtToolStripMenuItem";
-            this.sảnPhẩmBánÍtNhấtToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.sảnPhẩmBánÍtNhấtToolStripMenuItem.Text = "Sản phẩm bán ít nhất";
+            this.TSMI_PrdSellMin.Name = "TSMI_PrdSellMin";
+            this.TSMI_PrdSellMin.Size = new System.Drawing.Size(264, 26);
+            this.TSMI_PrdSellMin.Text = "Sản phẩm bán ít nhất";
+            this.TSMI_PrdSellMin.Click += new System.EventHandler(this.TSMI_PrdSellMin_Click);
             // 
             // dgv_Statistical
             // 
@@ -110,23 +113,33 @@ namespace _3_GUI_Layer
             this.dgv_Statistical.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgv_Statistical.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Statistical.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_Statistical.Location = new System.Drawing.Point(0, 271);
+            this.dgv_Statistical.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgv_Statistical.Location = new System.Drawing.Point(0, 160);
             this.dgv_Statistical.Name = "dgv_Statistical";
             this.dgv_Statistical.RowHeadersWidth = 51;
             this.dgv_Statistical.RowTemplate.Height = 29;
-            this.dgv_Statistical.Size = new System.Drawing.Size(1383, 414);
+            this.dgv_Statistical.Size = new System.Drawing.Size(1383, 525);
             this.dgv_Statistical.TabIndex = 1;
+            // 
+            // TSMI_PrSellMax
+            // 
+            this.TSMI_PrSellMax.Name = "TSMI_PrSellMax";
+            this.TSMI_PrSellMax.Size = new System.Drawing.Size(264, 26);
+            this.TSMI_PrSellMax.Text = "Sản phẩm bán nhiều nhất ";
+            this.TSMI_PrSellMax.Click += new System.EventHandler(this.TSMI_PrSellMax_Click);
             // 
             // Frmstatistical
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1383, 685);
             this.Controls.Add(this.dgv_Statistical);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Frmstatistical";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmThongKe";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -145,6 +158,7 @@ namespace _3_GUI_Layer
         private System.Windows.Forms.ToolStripMenuItem TSMI_AllProduct;
         private System.Windows.Forms.ToolStripMenuItem TSMI_MaxPrd;
         private System.Windows.Forms.ToolStripMenuItem TSMI_MinPrd;
-        private System.Windows.Forms.ToolStripMenuItem sảnPhẩmBánÍtNhấtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_PrdSellMin;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_PrSellMax;
     }
 }
