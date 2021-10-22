@@ -68,7 +68,7 @@ namespace _3_GUI_Layer
             rdEmployee.Checked = false;
             btnAdd.Enabled = true;
         }
-        private bool CheckForm()
+        private bool CheckForm(int check)
         {
 
             if (txtName.Text.Length == 0)
@@ -83,7 +83,7 @@ namespace _3_GUI_Layer
                 MessageBox.Show("không được để trống thông tin");
                 return true;
             }
-            if (_iManageEmployee.CheckMail(txtMail.Text))
+            if (check == 1 && _iManageEmployee.CheckMail(txtMail.Text))
             {
                 MessageBox.Show("Mail đã tồn tại .");
                 txtMail.Focus();
@@ -134,7 +134,7 @@ namespace _3_GUI_Layer
         #endregion
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (CheckForm()) return;
+            if (CheckForm(1)) return;
             _iManageEmployee.Add(ViewEpAdd());
             LoadData(_iManageEmployee.GetlstView_Ep());
             ClearForm(); 
@@ -151,10 +151,10 @@ namespace _3_GUI_Layer
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (CheckForm()) return;
+            if (CheckForm(0)) return;
             var Ep = _iManageEmployee.SelectViewEp(_EpCode_Click);
             var EpUpdate = ViewEpUpdate(Ep);
-            MessageBox.Show(_iManageEmployee.Update(EpUpdate));
+            _iManageEmployee.Update(EpUpdate);
             LoadData(_iManageEmployee.GetlstView_Ep());
             ClearForm();
         }

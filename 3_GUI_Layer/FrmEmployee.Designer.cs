@@ -150,7 +150,7 @@ namespace _3_GUI_Layer
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Sửa";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnRemove_Click);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnRemove
             // 
